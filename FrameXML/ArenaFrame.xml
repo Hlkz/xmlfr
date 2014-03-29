@@ -164,7 +164,7 @@
 			</Layer>
 		</Layers>
 		<Frames>
-			<Button name="ArenaZone1" inherits="ArenaButtonTemplate" id="1">
+			<Button name="ArenaZone3" inherits="ArenaButtonTemplate" id="3"><!-- were 6 buttons, down to 2 -->
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="ArenaFrame">
 						<Offset>
@@ -173,51 +173,15 @@
 					</Anchor>
 				</Anchors>
 			</Button>
-			<Button name="ArenaZone2" inherits="ArenaButtonTemplate" id="2">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="ArenaZone1" relativePoint="BOTTOMLEFT">
-						<Offset>
-							<AbsDimension x="0" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Button>
-			<Button name="ArenaZone3" inherits="ArenaButtonTemplate" id="3">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="ArenaZone2" relativePoint="BOTTOMLEFT">
-						<Offset>
-							<AbsDimension x="0" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Button>
-			<Button name="ArenaZone4" inherits="ArenaButtonTemplate" id="4">
+			<Button name="ArenaZone6" inherits="ArenaButtonTemplate" id="6">
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="ArenaZone3">
 						<Offset>
-							<AbsDimension x="0" y="-85"/>
+							<AbsDimension x="0" y="-117"/><!-- y="-85" for 3 buttons in skirmish -->
 						</Offset>
 					</Anchor>
 				</Anchors>
 			</Button>
-			<Button name="ArenaZone5" inherits="ArenaButtonTemplate" id="5">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="ArenaZone4" relativePoint="BOTTOMLEFT">
-						<Offset>
-							<AbsDimension x="0" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Button>
-			<Button name="ArenaZone6" inherits="ArenaButtonTemplate" id="6">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="ArenaZone5" relativePoint="BOTTOMLEFT">
-						<Offset>
-							<AbsDimension x="0" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</Button>			
 			<Button name="ArenaFrameCancelButton" inherits="UIPanelButtonTemplate" text="CANCEL">
 				<Size>
 					<AbsDimension x="83" y="22"/>

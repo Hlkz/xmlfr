@@ -13,11 +13,11 @@ function ArenaFrame_OnEvent (self, event, ...)
 			ShowUIPanel(ArenaFrame);
 			if ( ((GetNumPartyMembers() > 0) or (GetNumRaidMembers() > 0)) and IsPartyLeader() and GetCurrentArenaSeason()~=NO_ARENA_SEASON) then
 				if ( not ArenaFrame.selection ) then
-					ArenaFrame.selection = 1;
+					ArenaFrame.selection = 3; -- was 1
 				end
 			else
 				if ( (not ArenaFrame.selection) or (ArenaFrame.selection < 4) ) then
-					ArenaFrame.selection = 4;
+					ArenaFrame.selection = 6; -- was 4
 				end
 			end
             
@@ -52,13 +52,16 @@ end
 
 function ArenaFrame_Update (self)
 	local ARENA_TEAMS = {};
-	ARENA_TEAMS[1] = {size = 2};
-	ARENA_TEAMS[2] = {size = 3};
+	--ARENA_TEAMS[1] = {size = 2};
+	--ARENA_TEAMS[2] = {size = 3};
 	ARENA_TEAMS[3] = {size = 5};
 	
 	local button, battleType, teamSize;
 	
-	for i=1, MAX_ARENA_BATTLES, 1 do
+	-- for 1 => 6 to 3 and 6 (v5 ranked and normal)
+	--for i=1, MAX_ARENA_BATTLES, 1 do
+		---------------------------------------------------
+		i=3;
 		button = _G["ArenaZone"..i];
 		battleType = ARENA_RATED;
 		teamSize = i;
@@ -78,13 +81,36 @@ function ArenaFrame_Update (self)
 		else
 			button:UnlockHighlight();
 		end
-	end
+		---------------------------------------------------
+		i=6;
+		button = _G["ArenaZone"..i];
+		battleType = ARENA_RATED;
+		teamSize = i;
+		-- if buttons begin a second set of buttons for casual games, change text elements.
+		button:Enable();
+		if ( i > MAX_ARENA_TEAMS ) then
+			teamSize = teamSize - MAX_ARENA_TEAMS;
+			battleType = ARENA_CASUAL;
+		elseif ( GetCurrentArenaSeason()==NO_ARENA_SEASON ) then
+			button:Disable();
+		end
+		-- build text string to populate each element.
+		button:SetText(format(PVP_TEAMTYPE, ARENA_TEAMS[teamSize].size, ARENA_TEAMS[teamSize].size).." "..battleType);
+		-- Set selected instance
+		if ( i == ArenaFrame.selection ) then
+			button:LockHighlight();
+		else
+			button:UnlockHighlight();
+		end
+		---------------------------------------------------
+	--end
 
-	if ( ArenaFrame.selection > MAX_ARENA_TEAMS ) then
+	-- Allow soloQ in ranked
+	--if ( ArenaFrame.selection > MAX_ARENA_TEAMS ) then
 		ArenaFrameJoinButton:Enable();
-	else
-		ArenaFrameJoinButton:Disable();
-	end
+	--else
+	--	ArenaFrameJoinButton:Disable();
+	--end
 
 	if ( CanJoinBattlefieldAsGroup() ) then
 		if ( ((GetNumPartyMembers() > 0) or (GetNumRaidMembers() > 0)) and IsPartyLeader() and GetCurrentArenaSeason()~=NO_ARENA_SEASON) then
@@ -110,6 +136,7 @@ function ArenaFrame_Update (self)
 	else
 		BattlefieldFrameGroupJoinButton:Hide();
 	end
+	
 end
 
 function ArenaFrameJoinButton_OnClick(self)
