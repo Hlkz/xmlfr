@@ -1,3 +1,6 @@
+SHOW_TALENT_LEVEL = 1;
+SHOW_PVP_LEVEL = 1;
+
 function LoadMicroButtonTextures(self, name)
 	self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 	self:RegisterEvent("UPDATE_BINDINGS");
@@ -80,16 +83,16 @@ function UpdateMicroButtons()
 		SocialsMicroButton:SetButtonState("NORMAL");
 	end
 
-	if ( LFDParentFrame:IsShown() ) then
-		LFDMicroButton:SetButtonState("PUSHED", 1);
-	else
-		if ( playerLevel < LFDMicroButton.minLevel ) then
-			LFDMicroButton:Disable();
-		else
-			LFDMicroButton:Enable();
-			LFDMicroButton:SetButtonState("NORMAL");
-		end
-	end
+	--if ( LFDParentFrame:IsShown() ) then
+	--	LFDMicroButton:SetButtonState("PUSHED", 1);
+	--else
+	--	if ( playerLevel < LFDMicroButton.minLevel ) then
+	--		LFDMicroButton:Disable();
+	--	else
+	--		LFDMicroButton:Enable();
+	--		LFDMicroButton:SetButtonState("NORMAL");
+	--	end
+	--end
 
 	if ( HelpFrame:IsShown() ) then
 		HelpMicroButton:SetButtonState("PUSHED", 1);
