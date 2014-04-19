@@ -4,7 +4,6 @@ MAX_PIN_LENGTH = 10;
 
 function AccountLogin_OnLoad(self)
 	self:RegisterEvent("SHOW_SERVER_ALERT");
-	self:RegisterEvent("SHOW_SURVEY_NOTIFICATION");
 	self:RegisterEvent("CLIENT_ACCOUNT_MISMATCH");
 	self:RegisterEvent("CLIENT_TRIAL");
 	self:RegisterEvent("SCANDLL_ERROR");
@@ -104,18 +103,8 @@ end
 
 function AccountLogin_OnKeyDown(key)
 	if ( key == "ESCAPE" ) then
-		if ( ConnectionHelpFrame:IsShown() ) then
-			ConnectionHelpFrame:Hide();
-			AccountLoginUI:Show();
-		elseif ( SurveyNotificationFrame:IsShown() ) then
-			-- do nothing
-		else
 			AccountLogin_Exit();
-		end
 	elseif ( key == "ENTER" ) then
-		if ( SurveyNotificationFrame:IsShown() ) then
-			AccountLogin_SurveyNotificationDone(1);
-		end
 		AccountLogin_Login();
 	elseif ( key == "PRINTSCREEN" ) then
 		Screenshot();
@@ -126,8 +115,6 @@ function AccountLogin_OnEvent(event, arg1, arg2, arg3)
 	if ( event == "SHOW_SERVER_ALERT" ) then
 		ServerAlertText:SetText(arg1);
 		ServerAlertFrame:Show();
-	elseif ( event == "SHOW_SURVEY_NOTIFICATION" ) then
-		AccountLogin_ShowSurveyNotification();
 	elseif ( event == "CLIENT_ACCOUNT_MISMATCH" ) then
 		local accountExpansionLevel = arg1;
 		local installationExpansionLevel = arg2;
@@ -218,22 +205,6 @@ end
 function AccountLogin_Exit()
 --	PlaySound("gsTitleQuit");
 	QuitGame();
-end
-
-function AccountLogin_ShowSurveyNotification()
-	GlueDialog:Hide();
-	AccountLoginUI:Hide();
-	SurveyNotificationAccept:Enable();
-	SurveyNotificationDecline:Enable();
-	SurveyNotificationFrame:Show();
-end
-
-function AccountLogin_SurveyNotificationDone(accepted)
-	SurveyNotificationFrame:Hide();
-	SurveyNotificationAccept:Disable();
-	SurveyNotificationDecline:Disable();
-	SurveyNotificationDone(accepted);
-	AccountLoginUI:Show();
 end
 
 function AccountLogin_ShowUserAgreements()
