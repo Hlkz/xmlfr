@@ -121,12 +121,31 @@ GlueDialogTypes["DISCONNECTED"] = {
 	button2 = nil,
 	OnShow = function()
 		RealmList:Hide();
+		VirtualKeypadFrame:Hide();
 		SecurityMatrixLoginFrame:Hide();
 		StatusDialogClick();
 	end,
 	OnAccept = function()
 	end,
 	OnCancel = function()
+	end,
+}
+
+GlueDialogTypes["PARENTAL_CONTROL"] = {
+	text = AUTH_PARENTAL_CONTROL,
+	button1 = MANAGE_ACCOUNT,
+	button2 = OKAY,
+	OnShow = function()
+		RealmList:Hide();
+		VirtualKeypadFrame:Hide();
+		SecurityMatrixLoginFrame:Hide();
+		StatusDialogClick();
+	end,
+	OnAccept = function()
+		LaunchURL(AUTH_NO_TIME_URL);
+	end,
+	OnCancel = function()
+		StatusDialogClick();
 	end,
 }
 
@@ -145,9 +164,9 @@ GlueDialogTypes["CANCEL"] = {
 	button1 = CANCEL,
 	button2 = nil,
 	OnAccept = function()
+		StatusDialogClick();
 	end,
 	OnCancel = function()
-		StatusDialogClick();
 	end,
 }
 
@@ -168,6 +187,10 @@ GlueDialogTypes["OKAY"] = {
 	button1 = OKAY,
 	button2 = nil,
 	OnShow = function()
+		if ( VirtualKeypadFrame:IsShown() ) then
+			VirtualKeypadFrame:Hide();
+			CancelLogin();
+		end
 	end,
 	OnAccept = function()
 		StatusDialogClick();
@@ -182,6 +205,10 @@ GlueDialogTypes["OKAY_HTML"] = {
 	button2 = nil,
 	html = 1,
 	OnShow = function()
+		if ( VirtualKeypadFrame:IsShown() ) then
+			VirtualKeypadFrame:Hide();
+			CancelLogin();
+		end
 	end,
 	OnAccept = function()
 		StatusDialogClick();
@@ -196,6 +223,10 @@ GlueDialogTypes["OKAY_HTML_EXIT"] = {
 	button2 = EXIT_GAME,
 	html = 1,
 	OnShow = function()
+		if ( VirtualKeypadFrame:IsShown() ) then
+			VirtualKeypadFrame:Hide();
+			CancelLogin();
+		end
 	end,
 	OnAccept = function()
 		StatusDialogClick();
@@ -218,9 +249,10 @@ GlueDialogTypes["CONFIRM_PAID_SERVICE"] = {
 
 GlueDialogTypes["OKAY_WITH_URL"] = {
 	text = "",
-	button1 = OKAY,
-	button2 = nil,
+	button1 = HELP,
+	button2 = OKAY,
 	OnAccept = function()
+		LaunchURL(_G[GlueDialog.data]);
 	end,
 	OnCancel = function()
 		StatusDialogClick();
@@ -229,12 +261,15 @@ GlueDialogTypes["OKAY_WITH_URL"] = {
 
 GlueDialogTypes["CONNECTION_HELP"] = {
 	text = "",
-	button1 = OKAY,
-	button2 = nil,
+	button1 = HELP,
+	button2 = OKAY,
 	OnShow = function()
+		VirtualKeypadFrame:Hide();
 		StatusDialogClick();
 	end,
 	OnAccept = function()
+		AccountLoginUI:Hide();
+		ConnectionHelpFrame:Show();
 	end,
 	OnCancel = function()
 	end,
@@ -242,13 +277,16 @@ GlueDialogTypes["CONNECTION_HELP"] = {
 
 GlueDialogTypes["CONNECTION_HELP_HTML"] = {
 	text = "",
-	button1 = OKAY,
-	button2 = nil,
+	button1 = HELP,
+	button2 = OKAY,
 	html = 1,
 	OnShow = function()
+		VirtualKeypadFrame:Hide();
 		StatusDialogClick();
 	end,
 	OnAccept = function()
+		AccountLoginUI:Hide();
+		ConnectionHelpFrame:Show();
 	end,
 	OnCancel = function()
 	end,
@@ -397,6 +435,7 @@ GlueDialogTypes["ACCOUNT_MSG"] = {
 	escapeHides = true,
 
 	OnShow = function()
+		VirtualKeypadFrame:Hide();
 		StatusDialogClick();
 	end,
 	OnAccept = function()

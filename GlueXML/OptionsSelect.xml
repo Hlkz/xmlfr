@@ -77,8 +77,7 @@
 									<OnClick>
 										PlaySound("igMainMenuOption");
 										VideoOptionsFrame.lastFrame = OptionsSelectFrame;
-										GlueFrameFadeIn(VideoOptionsFrame, VX_FADE_REFRESH, VideoOptionsFrame:Show());
-										--VideoOptionsFrame:Show();
+										VideoOptionsFrame:Show();
 									</OnClick>
 								</Scripts>
 							</Button>
@@ -93,8 +92,7 @@
 									<OnClick>
 										PlaySound("igMainMenuOption");
 										AudioOptionsFrame.lastFrame = OptionsSelectFrame;
-										GlueFrameFadeIn(AudioOptionsFrame, VX_FADE_REFRESH, AudioOptionsFrame:Show());
-										--AudioOptionsFrame:Show();
+										AudioOptionsFrame:Show();
 									</OnClick>
 								</Scripts>
 							</Button>

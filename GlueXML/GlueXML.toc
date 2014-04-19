@@ -1,5 +1,3 @@
-LoginUI.lua
-
 ##DebugHook.lua
 GlueStrings.lua
 GlueFonts.xml
@@ -23,6 +21,7 @@ CharacterCreate.xml
 PatchDownload.xml
 MovieFrame.xml
 RealmWizard.xml
+CreditsFrame.xml
 SecurityMatrix.xml
 OptionsFrameTemplates.xml
 OptionsPanelTemplates.xml

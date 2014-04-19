@@ -3,10 +3,8 @@
 function VideoOptionsFrame_Toggle ()
 	if ( VideoOptionsFrame:IsShown() ) then
 		VideoOptionsFrame:Hide();
-		--GlueFrameFadeOut(VideoOptionsFrame, VX_FADE_REFRESH, "HIDE");
 	else
-		GlueFrameFadeIn(VideoOptionsFrame, VX_FADE_REFRESH, VideoOptionsFrame:Show());
-		--VideoOptionsFrame:Show();
+		VideoOptionsFrame:Show();
 	end
 end
 
