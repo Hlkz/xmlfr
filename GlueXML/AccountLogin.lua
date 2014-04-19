@@ -3,8 +3,6 @@ DEFAULT_TOOLTIP_COLOR = {0.8, 0.8, 0.8, 0.09, 0.09, 0.09};
 MAX_PIN_LENGTH = 10;
 
 function AccountLogin_OnLoad(self)
-	TOSFrame.noticeType = "EULA";
-
 	self:RegisterEvent("SHOW_SERVER_ALERT");
 	self:RegisterEvent("SHOW_SURVEY_NOTIFICATION");
 	self:RegisterEvent("CLIENT_ACCOUNT_MISMATCH");
@@ -42,9 +40,13 @@ function AccountLogin_OnShow(self)
 	PlayGlueMusic(CurrentGlueMusic);
 	PlayGlueAmbience(GlueAmbienceTracks["DARKPORTAL"], 4.0);
 
-	-- Try to show the EULA or the TOS
+	AcceptTOS();
+	AcceptEULA();
+	AcceptTerminationWithoutNotice();
+	AcceptScanning();
+	AcceptContest();
 	AccountLogin_ShowUserAgreements();
-	
+
 	local serverName = GetServerName();
 	if(serverName) then
 		AccountLoginRealmName:SetText(serverName);
@@ -111,11 +113,7 @@ function AccountLogin_OnKeyDown(key)
 			AccountLogin_Exit();
 		end
 	elseif ( key == "ENTER" ) then
-		if ( not TOSAccepted() ) then
-			return;
-		elseif ( TOSFrame:IsShown() or ConnectionHelpFrame:IsShown() ) then
-			return;
-		elseif ( SurveyNotificationFrame:IsShown() ) then
+		if ( SurveyNotificationFrame:IsShown() ) then
 			AccountLogin_SurveyNotificationDone(1);
 		end
 		AccountLogin_Login();
@@ -180,18 +178,6 @@ function AccountLogin_Login()
 	end
 end
 
-function AccountLogin_TOS()
-	if ( not GlueDialog:IsShown() ) then
-		PlaySound("gsLoginNewAccount");
-		AccountLoginUI:Hide();
-		TOSFrame:Show();
-		TOSScrollFrameScrollBar:SetValue(0);		
-		TOSScrollFrame:Show();
-		TOSFrameTitle:SetText(TOS_FRAME_TITLE);
-		TOSText:Show();
-	end
-end
-
 function AccountLogin_ManageAccount()
 	PlaySound("gsLoginNewAccount");
 	LaunchURL(AUTH_NO_TIME_URL);
@@ -251,101 +237,15 @@ function AccountLogin_SurveyNotificationDone(accepted)
 end
 
 function AccountLogin_ShowUserAgreements()
-	TOSScrollFrame:Hide();
-	EULAScrollFrame:Hide();
-	TerminationScrollFrame:Hide();
-	ScanningScrollFrame:Hide();
-	ContestScrollFrame:Hide();
-	TOSText:Hide();
-	EULAText:Hide();
-	TerminationText:Hide();
-	ScanningText:Hide();
-	if ( not EULAAccepted() ) then
-		if ( ShowEULANotice() ) then
-			TOSNotice:SetText(EULA_NOTICE);
-			TOSNotice:Show();
-		end
+	if ( not IsScanDLLFinished() ) then
 		AccountLoginUI:Hide();
-		TOSFrame.noticeType = "EULA";
-		TOSFrameTitle:SetText(EULA_FRAME_TITLE);
-		TOSFrameHeader:SetWidth(TOSFrameTitle:GetWidth());
-		EULAScrollFrame:Show();
-		EULAText:Show();
-		TOSFrame:Show();
-	elseif ( not TOSAccepted() ) then
-		if ( ShowTOSNotice() ) then
-			TOSNotice:SetText(TOS_NOTICE);
-			TOSNotice:Show();
-		end
-		AccountLoginUI:Hide();
-		TOSFrame.noticeType = "TOS";
-		TOSFrameTitle:SetText(TOS_FRAME_TITLE);
-		TOSFrameHeader:SetWidth(TOSFrameTitle:GetWidth());
-		TOSScrollFrame:Show();
-		TOSText:Show();
-		TOSFrame:Show();
-	elseif ( not TerminationWithoutNoticeAccepted() and SHOW_TERMINATION_WITHOUT_NOTICE_AGREEMENT ) then
-		if ( ShowTerminationWithoutNoticeNotice() ) then
-			TOSNotice:SetText(TERMINATION_WITHOUT_NOTICE_NOTICE);
-			TOSNotice:Show();
-		end
-		AccountLoginUI:Hide();
-		TOSFrame.noticeType = "TERMINATION";
-		TOSFrameTitle:SetText(TERMINATION_WITHOUT_NOTICE_FRAME_TITLE);
-		TOSFrameHeader:SetWidth(TOSFrameTitle:GetWidth());
-		TerminationScrollFrame:Show();
-		TerminationText:Show();
-		TOSFrame:Show();
-	elseif ( not ScanningAccepted() and SHOW_SCANNING_AGREEMENT ) then
-		if ( ShowScanningNotice() ) then
-			TOSNotice:SetText(SCANNING_NOTICE);
-			TOSNotice:Show();
-		end
-		AccountLoginUI:Hide();
-		TOSFrame.noticeType = "SCAN";
-		TOSFrameTitle:SetText(SCAN_FRAME_TITLE);
-		TOSFrameHeader:SetWidth(TOSFrameTitle:GetWidth());
-		ScanningScrollFrame:Show();
-		ScanningText:Show();
-		TOSFrame:Show();
-	elseif ( not ContestAccepted() and SHOW_CONTEST_AGREEMENT ) then
-		if ( ShowContestNotice() ) then
-			TOSNotice:SetText(CONTEST_NOTICE);
-			TOSNotice:Show();
-		end
-		AccountLoginUI:Hide();
-		TOSFrame.noticeType = "CONTEST";
-		TOSFrameTitle:SetText(CONTEST_FRAME_TITLE);
-		TOSFrameHeader:SetWidth(TOSFrameTitle:GetWidth());
-		ContestScrollFrame:Show();
-		ContestText:Show();
-		TOSFrame:Show();
-	elseif ( not IsScanDLLFinished() ) then
-		AccountLoginUI:Hide();
-		TOSFrame:Hide();
 		local dllURL = "";
 		if ( IsWindowsClient() ) then dllURL = SCANDLL_URL_WIN32_SCAN_DLL; end
 		ScanDLLStart(SCANDLL_URL_LAUNCHER_TXT, dllURL);
 	else
 		AccountLoginUI:Show();
-		TOSFrame:Hide();
 	end
-end
-
-function AccountLogin_UpdateAcceptButton(scrollFrame, isAcceptedFunc, noticeType)
-	local scrollbar = _G[scrollFrame:GetName().."ScrollBar"];
-	local min, max = scrollbar:GetMinMaxValues();
-
-	-- HACK: scrollbars do not handle max properly
-	-- DO NOT CHANGE - without speaking to Mikros/Barris/Thompson
-	if (scrollbar:GetValue() >= max - 20) then
-		TOSAccept:Enable();
-	else
-		if ( not isAcceptedFunc() and TOSFrame.noticeType == noticeType ) then
-			TOSAccept:Disable();
-		end
-	end
-end																
+end													
 
 function ChangedOptionsDialog_OnShow(self)
 	if ( not ShowChangedOptionWarnings() ) then
