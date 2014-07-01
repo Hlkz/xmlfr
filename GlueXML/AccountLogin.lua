@@ -9,6 +9,13 @@ function AccountLogin_OnLoad(self)
 	self:RegisterEvent("SCANDLL_ERROR");
 	self:RegisterEvent("SCANDLL_FINISHED");
 
+	AcceptTOS();
+	AcceptEULA();
+	AcceptTerminationWithoutNotice();
+	AcceptScanning();
+	AcceptContest();
+	AccountLogin_ShowUserAgreements();
+
 	local versionType, buildType, version, internalVersion, date = GetBuildInfo();
 	AccountLoginVersion:SetFormattedText(VERSION_TEMPLATE, versionType, version, internalVersion, buildType, date);
 
@@ -38,13 +45,6 @@ function AccountLogin_OnShow(self)
 	self:SetSequence(0);
 	PlayGlueMusic(CurrentGlueMusic);
 	PlayGlueAmbience(GlueAmbienceTracks["DARKPORTAL"], 4.0);
-
-	AcceptTOS();
-	AcceptEULA();
-	AcceptTerminationWithoutNotice();
-	AcceptScanning();
-	AcceptContest();
-	AccountLogin_ShowUserAgreements();
 
 	local serverName = GetServerName();
 	if(serverName) then
