@@ -642,28 +642,15 @@
 								<AbsValue val="32"/>
 							</EdgeSize>
 						</Backdrop>
-						<Layers>
-							<Layer level="ARTWORK">
-								<FontString name="ServerAlertTitle" inherits="GlueFontNormalLarge" text="SERVER_ALERT_TITLE">
-									<Anchors>
-										<Anchor point="TOP">
-											<Offset>
-												<AbsDimension x="0" y="-20"/>
-											</Offset>
-										</Anchor>
-									</Anchors>
-								</FontString>
-							</Layer>
-						</Layers>
 						<Frames>
 							<ScrollFrame name="ServerAlertScrollFrame" inherits="GlueScrollFrameTemplate">
 								<Size>
-									<AbsDimension x="300" y="340"/>
+									<AbsDimension x="300" y="360"/>
 								</Size>
 								<Anchors>
 									<Anchor point="TOPLEFT">
 										<Offset>
-											<AbsDimension x="15" y="-46"/>
+											<AbsDimension x="15" y="-26"/>
 										</Offset>
 									</Anchor>
 								</Anchors>
@@ -682,7 +669,7 @@
 								<ScrollChild>
 									<SimpleHTML name="ServerAlertText" hyperlinkFormat="|cff06ff07|H%s|h[%s]|h|r">
 										<Size>
-											<AbsDimension x="300" y="400"/>
+											<AbsDimension x="300" y="360"/>
 										</Size>
 										<Scripts>
 											<OnHyperlinkClick>
