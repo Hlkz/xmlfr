@@ -127,18 +127,6 @@
 								</Anchor>
 							</Anchors>
 						</Texture>
-						<Texture name="WorldOfWarcraftRating" hidden="true">
-							<Size>
-								<AbsDimension x="128" y="128"/>
-							</Size>
-							<Anchors>
-								<Anchor point="TOPRIGHT">
-									<Offset>
-										<AbsDimension x="0" y="0"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</Texture>
 					</Layer>
 				</Layers>
 				<Frames>
@@ -494,7 +482,7 @@
 							<Layer level="ARTWORK">
 								<FontString name="AccountLoginSaveAccountNameText" inherits="GlueFontNormalSmall" text="SAVE_ACCOUNT_NAME">
 									<Anchors>
-										<Anchor point="TOP" relativeTo="AccountLoginLoginButton" relativePoint="BOTTOM">
+										<Anchor point="BOTTOM" relativeTo="AccountLoginLoginButton" relativePoint="TOP">
 											<Offset>
 												<AbsDimension x="10" y="0"/>
 											</Offset>
@@ -539,67 +527,6 @@
 								else
 									PlaySound("igMainMenuOptionCheckBoxOn");
 								end
-							</OnClick>
-						</Scripts>
-						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
-						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
-						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
-						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
-						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled"/>
-					</CheckButton>
-					<CheckButton name="AccountLoginShowLauncher">
-						<Size>
-							<AbsDimension x="20" y="20"/>
-						</Size>
-						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="AccountLoginCommunityButton" relativePoint="BOTTOMLEFT">
-								<Offset>
-									<AbsDimension x="7" y="-5"/>
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Layers>
-							<Layer level="ARTWORK">
-								<FontString inherits="GlueFontNormalSmall" text="SHOW_LAUNCHER">
-									<Anchors>
-										<Anchor point="LEFT">
-											<Offset>
-												<AbsDimension x="24" y="0"/>
-											</Offset>
-										</Anchor>
-									</Anchors>
-									<FontHeight>
-										<AbsValue val="10"/>
-									</FontHeight>
-									<Shadow>
-										<Offset>
-											<AbsDimension x="1" y="-1"/>
-										</Offset>
-										<Color r="0" g="0" b="0"/>
-									</Shadow>
-									<Color r="1.0" g="0.78" b="0"/>
-								</FontString>
-							</Layer>
-						</Layers>
-						<Scripts>
-							<OnLoad>
-								if ( GetCVar("showToolsUI") == "1" ) then
-									self:SetChecked(1);
-								else
-									self:SetChecked(0);
-								end
-							</OnLoad>
-							<OnClick>
-								if ( self:GetChecked() ) then
-									PlaySound("igMainMenuOptionCheckBoxOff");
-								else
-									PlaySound("igMainMenuOptionCheckBoxOn");
-								end
-								local checked = self:GetChecked();
-								if ( not checked ) then
-									checked = "0";
-								end
-								SetCVar("showToolsUI", checked);
 							</OnClick>
 						</Scripts>
 						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
@@ -1389,42 +1316,6 @@
 								WoWAccountSelect_OnShow(self)
 							</OnShow>
 						</Scripts>
-					</Frame>
-					<Frame name="KoreanRatings" hidden="true">
-						<Size x="288" y="224"/>
-						<Anchors>
-							<Anchor point="TOPRIGHT"/>
-						</Anchors>
-						<Layers>
-							<Layer level="ARTWORK">
-								<FontString name="KoreanRatingsText" inherits="GlueFontHighlightExtraSmall" justifyH="RIGHT" text="RATINGS_TEXT">
-									<Anchors>
-										<Anchor point="TOPRIGHT" x="-10" y="-15"/>
-									</Anchors>
-								</FontString>
-								<Texture name="KoreanRatingsDrugs" file="Interface\Glues\Login\Glues-KoreanRating-Drugs.tga">
-									<Size x="99" y="117"/>
-									<Anchors>
-										<Anchor point="TOPRIGHT" relativeTo="KoreanRatingsText" relativePoint="BOTTOMRIGHT" x="0" y="-5"/>
-									</Anchors>
-									<TexCoords left="0.094" right="0.896" top="0.023" bottom="0.966"/>
-								</Texture>
-								<Texture name="KoreanRatingsViolence" file="Interface\Glues\Login\Glues-KoreanRating-Violence.tga">
-									<Size x="99" y="117"/>
-									<Anchors>
-										<Anchor point="RIGHT" relativeTo="KoreanRatingsDrugs" relativePoint="LEFT" x="-10" y="0"/>
-									</Anchors>
-									<TexCoords left="0.094" right="0.896" top="0.023" bottom="0.966"/>
-								</Texture>
-								<Texture name="KoreanRatingsAge" file="Interface\Glues\Login\Glues-KoreanRating-Age.tga">
-									<Size x="99" y="117"/>
-									<Anchors>
-										<Anchor point="RIGHT" relativeTo="KoreanRatingsViolence" relativePoint="LEFT" x="-10" y="0"/>
-									</Anchors>
-									<TexCoords left="0.109" right="0.88" top="0.039" bottom="0.951"/>
-								</Texture>
-							</Layer>
-						</Layers>
 					</Frame>
 				</Frames>
 				<Scripts>
