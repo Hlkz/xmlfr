@@ -95,19 +95,7 @@
 			<Frame name="AccountLoginUI" setAllPoints="true">
 				<Layers>
 					<Layer level="ARTWORK">
-						<Texture file="Interface\Glues\Mainmenu\Glues-BlizzardLogo">
-							<Size>
-								<AbsDimension x="100" y="100"/>
-							</Size>
-							<Anchors>
-								<Anchor point="BOTTOM">
-									<Offset>
-										<AbsDimension x="0" y="8"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</Texture>
-						<FontString inherits="GlueFontNormalSmall" text="BLIZZ_DISCLAIMER">
+						<!--<FontString inherits="GlueFontNormalSmall" text="BLIZZ_DISCLAIMER">
 							<Anchors>
 								<Anchor point="BOTTOM">
 									<Offset>
@@ -115,7 +103,7 @@
 									</Offset>
 								</Anchor>
 							</Anchors>
-						</FontString>
+						</FontString>-->
 						<FontString name="AccountLoginVersion" inherits="GlueFontNormalSmall" justifyH="LEFT">
 							<Anchors>
 								<Anchor point="BOTTOMLEFT">
@@ -177,7 +165,7 @@
 										</Anchor>
 									</Anchors>
 								</FontString>
-								<FontString name="$parentFill" inherits="GlueFontDisableSmall" justifyH="LEFT" justifyV="MIDDLE" text="ENTER_EMAIL">
+								<FontString name="$parentFill" inherits="GlueFontDisableSmall" justifyH="LEFT" justifyV="MIDDLE" text="ENTER_ACCOUNT">
 									<Anchors>
 										<Anchor point="CENTER" relativePoint="CENTER">
 											<Offset>
