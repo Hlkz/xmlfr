@@ -53,7 +53,7 @@ ACCOUNT_MESSAGE_BODY_URL = "http://support.wow-europe.com/accountmessaging/getMe
 ACCOUNT_MESSAGE_BUTTON_READ = "Marquer comme lu";
 ACCOUNT_MESSAGE_HEADERS_URL = "http://support.wow-europe.com/accountmessaging/getMessageHeaders.xml";
 ACCOUNT_MESSAGE_READ_URL = "http://support.wow-europe.com/accountmessaging/markMessageAsRead.xml";
---ACCOUNT_NAME = "Nom de compte Battle.net";
+ACCOUNT_NAME = "Nom de compte"; -- "Nom de compte Battle.net"
 ACCOUNT_OPTIONS = "Options de compte";
 ADDONS = "Add-ons";
 ADDONS_OUT_OF_DATE = "Vous utilisez une nouvelle version du jeu avec des modification d'interface périmées. Nous vous conseillons de les désactiver.";
@@ -335,8 +335,8 @@ CLIENT_CONVERTED_TITLE = "Bienvenue dans World of Warcraft.";
 CLIENT_RESTART_ALERT = "Certains de vos réglages ne prendront pas effet tant que vous n'aurez pas relancé le jeu.";
 CLIENT_TRIAL = "<html><body><p>Votre compte correspond à une version commerciale complète, qui n'est pas compatible avec la version d'essai de World of Warcraft. Veuillez installer la version complète de World of Warcraft. Pour plus d'informations, veuillez consulter la page <a href='https://www.wow-europe.com/account/download_wow.html '>https://www.wow-europe.com/account/download_wow.html </a></p></body></html>";
 CLOSE = "Fermer";
---COMMUNITY_SITE = "Site officiel";
-COMMUNITY_URL = "http://www.wow-europe.com/fr";
+COMMUNITY_SITE = "Site web" -- "Site officiel"
+COMMUNITY_URL = "http://aviana-online.com"; -- "http://www.wow-europe.com/fr"
 CONFIGURE_MODS_FOR = "Configurer les add-ons pour :";
 CONFIRM_CHAR_DELETE = "Voulez-vous effacer\n|cffffffff%1$s %3$s niveau %2$d|r ?";
 CONFIRM_CHAR_DELETE_INSTRUCTIONS = "Tapez \"EFFACER\" dans le champ pour confirmer.";
@@ -495,7 +495,7 @@ LOAD_LOW = "Faible";
 LOAD_MEDIUM = "Moyenne";
 LOAD_NEW = "Recommandé";
 LOAD_RECOMMENDED = "Nvx joueurs";
---LOGIN = "Connexion";
+LOGIN = "Connexion"; -- "Connexion"
 LOGIN_ACCOUNT_CONVERTED = "Ce compte est désormais lié à un compte Battle.net. Veuillez vous connecter avec l’adresse e-mail (par exemple : john.doe@blizzard.com) et le mot de passe de votre compte Battle.net.";
 LOGIN_ACCOUNT_LOCKED = "<html><body><p align=\"CENTER\">Ce compte a été verrouillé pour cause d'activité suspecte.|nUn e-mail contenant des informations pour résoudre ce souci a été envoyé à l'adresse associée.|nRendez-vous sur la page |n<a href=\"http://eu.battle.net/wow/account-locked/fr-fr\">eu.battle.net/wow/account-locked/fr-fr</a> pour obtenir plus d'informations.</p></body></html>";
 LOGIN_ALREADYONLINE = "Ce compte est déjà connecté à World of Warcraft. Veuillez en vérifier l'orthographe et recommencer.";
@@ -504,7 +504,7 @@ LOGIN_AUTH_OUTAGE = "<html><body><p align=\"CENTER\">Le serveur d'authentificati
 LOGIN_BADVERSION = "<html><body><p align=\"CENTER\">Impossible de valider la version du jeu. Cela peut provenir d'un fichier corrompu ou d'une interférence avec un autre programme. Veuillez vous rendre sur <a href=\"http://eu.blizzard.com/support/article.xml?articleId=19811\">http://eu.blizzard.com/support/article.xml?articleId=19811</a> pour de plus amples informations et de possibles solutions à ce problème.</p></body></html>";
 LOGIN_BAD_SERVER_PROOF = "<html><body><p align=\"CENTER\">Le serveur auquel vous essayez de vous connecter n'est pas un serveur de jeu valide. Si le problème persiste, contactez l'assistance technique sur : <a href=\"http://eu.blizzard.com/support/index.xml?gameId=11&rootCategoryId=2100\">http://eu.blizzard.com/support/index.xml?gameId=11&rootCategoryId=2100</a></p></body></html>";
 LOGIN_BAD_SERVER_RECODE_PROOF = "Mauvaise preuve reprogrammée";
---LOGIN_BANNED = "<html><body><p align=\"CENTER\">Ce compte World of Warcraft a été fermé et n'est plus en service. Veuillez aller à l'adresse <a href=\"http://www.wow-europe.com/fr/misc/banned.html\">http://www.wow-europe.com/fr/misc/banned.html</a> pour obtenir de plus amples informations.</p></body></html>";
+LOGIN_BANNED = "<html><body><p align=\"CENTER\">Ce compte a été fermé et n'est plus en service.</p></body></html>"; -- "<html><body><p align=\"CENTER\">Ce compte World of Warcraft a été fermé et n'est plus en service. Veuillez aller à l'adresse <a href=\"http://www.wow-europe.com/fr/misc/banned.html\">http://www.wow-europe.com/fr/misc/banned.html</a> pour obtenir de plus amples informations.</p></body></html>";
 LOGIN_CHARGEBACK = "<html><body><p align=\"CENTER\">Ce compte World of Warcraft a été temporairement fermé en raison d'une rétrofacturation pour son abonnement. Veuillez consulter la page <a href=\"http://eu.blizzard.com/support/article/chargeback\">http://eu.blizzard.com/support/article/chargeback</a> pour de plus amples informations.</p></body></html>";
 LOGIN_CONVERSION_REQUIRED = "<html><body><p align=\"CENTER\">Vous devez vous connecter avec le nom d'utilisateur et le mot de passe de votre compte Battle.net. Pour créer un compte, veuillez <a href=\"https://eu.battle.net/account/creation/landing.xml\">cliquer ici</a> ou rendez-vous sur :|n<a href=\"https://eu.battle.net/account/creation/landing.xml\">https://eu.battle.net/account/creation/landing.xml</a>|npour effectuer la conversion.</p></body></html>";
 LOGIN_DBBUSY = "Connexion à World of Warcraft momentanément impossible. Veuillez réessayer ultérieurement.";
@@ -512,7 +512,7 @@ LOGIN_ENTER_NAME = "Veuillez saisir votre nom de compte.";
 LOGIN_ENTER_PASSWORD = "Veuillez saisir votre mot de passe.";
 LOGIN_ERROR = "Erreur";
 LOGIN_EXPIRED = "<html><body><p align=\"CENTER\">L'abonnement de votre compte est terminé. Veuillez vous rendre sur <a href=\"http://www.wow-europe.com/account\">www.wow-europe.com/account</a> pour acquérir du temps de jeu.</p></body></html>";
---LOGIN_FAILED = "<html><body><p align=\"CENTER\">Impossible de se connecter. Veuillez réessayer ultérieurement. Si le problème persiste, contactez l'assistance technique sur : <a href=\"http://eu.blizzard.com/support/index.xml?gameId=11&amp;rootCategoryId=2100\">http://eu.blizzard.com/support/index.xml?gameId=11&amp;rootCategoryId=2100</a></p></body></html>";
+LOGIN_FAILED = "<html><body><p align=\"CENTER\">Impossible de se connecter.</p><p align=\"CENTER\">Veuillez réessayer ultérieurement.</p></body></html>"; -- "<html><body><p align=\"CENTER\">Impossible de se connecter. Veuillez réessayer ultérieurement. Si le problème persiste, contactez l'assistance technique sur : <a href=\"http://eu.blizzard.com/support/index.xml?gameId=11&amp;rootCategoryId=2100\">http://eu.blizzard.com/support/index.xml?gameId=11&amp;rootCategoryId=2100</a></p></body></html>"
 LOGIN_GAME_ACCOUNT_LOCKED = "<html><body><p align=\"CENTER\">L'accès à votre compte a été temporairement suspendu. Pour obtenir de plus amples informations, veuillez contacter l'assistance sur : <a href=\"https://www.wow-europe.com/account/account-error.html\">https://www.wow-europe.com/account/account-error.html</a></p></body></html>";
 LOGIN_IGR_WITHOUT_BNET = "<html><body><p align=\"CENTER\">Pour que vous puissiez vous connecter à World of Warcraft en utilisant du temps d'IGR, ce compte World of Warcraft doit d'abord être fusionné avec un compte Battle.net. Veuillez visiter la page <a href=\"http://eu.battle.net/\">http://eu.battle.net/</a> afin de fusionner ce compte.</p></body></html>";
 LOGIN_INCORRECT_PASSWORD = "Mot de passe incorrect";
@@ -521,7 +521,7 @@ LOGIN_INVALID_PROOF_MESSAGE = "Message de preuve incorrect";
 LOGIN_INVALID_RECODE_MESSAGE = "Message reprogrammé incorrect";
 LOGIN_LOCALE_MISMATCH = "Langue du client incorrecte";
 LOGIN_LOCKED_ENFORCED = "Vous avez verrouillé votre compte. Vous pouvez déverrouiller en appelant le numéro de téléphone du verrouillage de compte.";
---LOGIN_MALFORMED_ACCOUNT_NAME = "<html><body><p align=\"CENTER\">Les informations que vous avez tapées ne sont pas valides. Veuillez vérifier l'orthographe de votre nom de compte et de votre mot de passe. Si vous avez besoin d'aide pour retrouver un mot de passe oublié ou volé, rendez-vous sur <a href=\"https://www.wow-europe.com/login-support/?locale=fr_FR\">www.wow-europe.com/login-support/</a> pour plus d'informations.</p></body></html>";
+LOGIN_MALFORMED_ACCOUNT_NAME = "<html><body><p align=\"CENTER\">Les informations que vous avez tapées ne sont pas valides. Si vous avez besoin d'aide pour retrouver un mot de passe oublié ou volé, rendez-vous sur <a href=\"https://www.aviana-online.com/account.php\">aviana-online.com/account</a> pour plus d'informations.</p></body></html>"; -- "<html><body><p align=\"CENTER\">Les informations que vous avez tapées ne sont pas valides. Veuillez vérifier l'orthographe de votre nom de compte et de votre mot de passe. Si vous avez besoin d'aide pour retrouver un mot de passe oublié ou volé, rendez-vous sur <a href=\"https://www.wow-europe.com/login-support/?locale=fr_FR\">www.wow-europe.com/login-support/</a> pour plus d'informations.</p></body></html>"
 LOGIN_NOTIME = "<html><body><p align=\"CENTER\">Vous avez utilisé la totalité de votre temps prépayé pour ce compte. Veuillez vous rendre sur <a href=\"http://www.wow-europe.com/account\">www.wow-europe.com/account</a> pour acheter du temps supplémentaire et continuer à jouer.</p></body></html>";
 LOGIN_NO_BATTLENET_APPLICATION = "<html><body><p align=\"CENTER\">Une erreur s'est produite pendant la connexion. Veuillez réessayer ultérieurement. Si le problème persiste, contactez l'assistance technique sur : <a href=\"http://eu.blizzard.com/support/article.xml?locale=fr_FR&amp;articleId=21014\">http://eu.blizzard.com/support/article.xml?locale=fr_FR&amp;articleId=21014</a></p></body></html>";
 LOGIN_NO_BATTLENET_MANAGER = "<html><body><p align=\"CENTER\">Une erreur s'est produite pendant la connexion. Veuillez réessayer ultérieurement. Si le problème persiste, contactez l'assistance technique sur : <a href=\"http://eu.blizzard.com/support/article.xml?locale=fr_FR&amp;articleId=21014\">http://eu.blizzard.com/support/article.xml?locale=fr_FR&amp;articleId=21014</a></p></body></html>";
@@ -538,10 +538,10 @@ LOGIN_STATE_DOWNLOADFILE = "Téléchargement en cours";
 LOGIN_STATE_HANDSHAKING = "Négociation";
 LOGIN_STATE_INITIALIZED = "Initialisation terminée";
 LOGIN_STATE_SURVEY = "Envoi de spécifications système non personnelles";
---LOGIN_SUSPENDED = "<html><body><p align=\"CENTER\">Ce compte World of Warcraft a été temporairement suspendu. Veuillez aller à l'adresse <a href=\"http://www.wow-europe.com/fr/misc/banned.html\">http://www.wow-europe.com/fr/misc/banned.html</a> pour obtenir de plus amples informations.</p></body></html>";
+LOGIN_SUSPENDED = "<html><body><p align=\"CENTER\">Ce compte a été temporairement suspendu.</p></body></html>"; -- "<html><body><p align=\"CENTER\">Ce compte World of Warcraft a été temporairement suspendu. Veuillez aller à l'adresse <a href=\"http://www.wow-europe.com/fr/misc/banned.html\">http://www.wow-europe.com/fr/misc/banned.html</a> pour obtenir de plus amples informations.</p></body></html>"
 LOGIN_TOO_FAST = "Vous avez atteint le maximum de tentatives de connexion. Veuillez réessayer dans quelques minutes.";
 LOGIN_TRIAL_EXPIRED = "<html><body><p align=\"CENTER\">Votre période d'essai est terminée. Veuillez vous rendre sur <a href=\"http://www.wow-europe.com/account\">www.wow-europe.com/account</a> pour mettre à niveau votre compte.</p></body></html>";
---LOGIN_UNKNOWN_ACCOUNT = "<html><body><p align=\"CENTER\">Les informations que vous avez tapées ne sont pas valides. Veuillez vérifier l'orthographe de votre nom de compte et de votre mot de passe. Si vous avez besoin d'aide pour retrouver un mot de passe oublié ou volé, rendez-vous sur <a href=\"https://www.wow-europe.com/login-support/?locale=fr_FR\">www.wow-europe.com/login-support/</a> pour plus d'informations.</p></body></html>";
+LOGIN_UNKNOWN_ACCOUNT = "<html><body><p align=\"CENTER\">Les informations que vous avez tapées ne sont pas valides. Si vous avez besoin d'aide pour retrouver un mot de passe oublié ou volé, rendez-vous sur <a href=\"https://www.aviana-online.com/account.php\">aviana-online.com/account</a> pour plus d'informations.</p></body></html>"; -- "<html><body><p align=\"CENTER\">Les informations que vous avez tapées ne sont pas valides. Veuillez vérifier l'orthographe de votre nom de compte et de votre mot de passe. Si vous avez besoin d'aide pour retrouver un mot de passe oublié ou volé, rendez-vous sur <a href=\"https://www.wow-europe.com/login-support/?locale=fr_FR\">www.wow-europe.com/login-support/</a> pour plus d'informations.</p></body></html>"
 LOGIN_UNKNOWN_ACCOUNT_CALL = "Appeler le service client";
 LOGIN_UNKNOWN_ACCOUNT_PIN = "<html><body><p align=\"CENTER\">Les informations que vous avez fournies ne sont pas valables. Veuillez vérifier l'orthographe de votre nom de compte, mot de passe, et code PIN. Si vous avez besoin d'aide pour récupérer un mot de passe, un compte, ou un code PIN perdu ou volé, rendez-vous sur <a href=\"https://www.wow-europe.com/login-support/?locale=fr_FR\">www.wow-europe.com/login-support/</a> pour de plus amples informations.</p></body></html>";
 LOGIN_UNLOCKABLE_LOCK = "Ce compte a été verrouillé, mais peut être déverrouillé.";
@@ -549,7 +549,7 @@ LOGIN_USE_GRUNT = "Veuillez utiliser le nom et le mot de passe de votre compte W
 LOW = "Bas";
 MAGE_DISABLED = "Mage\nVous devez choisir une race compatible avec cette classe.";
 MALE = "Homme";
---MANAGE_ACCOUNT = "Gérer le compte";
+MANAGE_ACCOUNT = "Compte"; -- "Gérer le compte"
 MASTER_VOLUME = "Principal";
 MELEE_CRIT = "CRIT %.2f";
 MENU_ABOUT = "A propos de World of Warcraft...";
@@ -643,7 +643,7 @@ PAID_RACE_CHANGE_TOOLTIP = "Cliquez pour changer la race de votre personnage";
 PALADIN_DISABLED = "Paladin\nVous devez choisir une race compatible avec cette classe.";
 PARRY = "PARAD %.2f";
 PARTICLE_DENSITY = "Densité des particules";
---PASSWORD = "Mot de passe";
+PASSWORD = "Mot de passe"; -- "Mot de passe"
 PATCH_FAILED_DISK_FULL = "Il n'y a pas assez d'espace libre sur le disque dur pour télécharger la mise à jour. Veuillez libérer %d Mo et réessayer. Remarque : il faudra également de l'espace pour lancer la mise à jour.";
 PATCH_FAILED_MESSAGE = "Impossible d'installer la mise à jour. Veuillez réessayer ultérieurement. Si ce problème persiste, vous serez peut-être amené à procéder à la réinstallation ou à contacter l’assistance technique.";
 PENETRATION = "PÉNÉT %d";
@@ -751,7 +751,7 @@ RUSSIAN_DECLENSION_EXAMPLE_2 = "Hier j'ai commencé par taper sur la tête |2 %s
 RUSSIAN_DECLENSION_EXAMPLE_3 = "Aujourd'hui j'ai encore croisé %s.";
 RUSSIAN_DECLENSION_EXAMPLE_4 = "%s est mon ami maintenant.";
 RUSSIAN_DECLENSION_EXAMPLE_5 = "Même si j'ignore tout |2 %s";
---SAVE_ACCOUNT_NAME = "Se souvenir du nom de compte";
+SAVE_ACCOUNT_NAME = "Se souvenir du nom de compte"; -- "Se souvenir du nom de compte"
 SCANDLL_BUTTON_CONTINUEANYWAY = "Jouer quand même";
 SCANDLL_BUTTON_MOREINFO = "Plus d'infos";
 SCANDLL_MESSAGE_DOWNLOADING = "[TEMPORAIRE] Téléchargement du Blizzard Scan";
@@ -779,7 +779,7 @@ SERVER_ALERT_BETA_URL = "http://beta.wow-europe.com/fr/alert";
 SERVER_ALERT_BUTTON_TEXT = "Plus d'infos";
 SERVER_ALERT_PTR_URL = "";
 --SERVER_ALERT_TITLE = "Dernières nouvelles";
---SERVER_ALERT_URL = "http://status.wow-europe.com/fr/alert";
+SERVER_ALERT_URL = "http://aviana-online.com/fr/alert"; -- "http://status.wow-europe.com/fr/alert"
 SERVER_DOWN = "Serveur arrêté";
 SERVER_SELECTION = "Choix du Royaume";
 SERVER_SPLIT = "La population de ce royaume a dépassé la capacité maximale et va être scindée en deux. Les joueurs seront répartis entre les deux nouveaux royaumes. Vous allez pouvoir choisir celui des deux royaumes que vous préférez jusqu'au |cffffffff%s|r, date à laquelle la scission sera verrouillée. Si vous n'effectuez pas de sélection, un des nouveaux royaumes vous sera automatiquement assigné. Pour plus d’informations, rendez-vous sur www.wow-europe.com.\n\nVeuillez indiquer ci-dessous votre destination préférentielle. Vous pourrez modifier votre choix quand vous le voudrez jusqu'à la date de verrouillage de la scission.";
