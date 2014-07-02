@@ -63,27 +63,6 @@
 		<DisabledTexture inherits="GluePanelButtonDisabledTexture"/>
 		<HighlightTexture inherits="GluePanelButtonHighlightTexture" alphaMode="ADD"/>
 	</Button>
-	<Button name="GlueButtonTemplate" virtual="true">
-		<Size>
-			<AbsDimension x="170" y="45"/>
-		</Size>
-		<ButtonText>
-			<Anchors>
-				<Anchor point="CENTER">
-					<Offset>
-						<AbsDimension x="0" y="3"/>
-					</Offset>
-				</Anchor>
-			</Anchors>
-		</ButtonText>
-		<NormalFont style="GlueFontNormal"/>
-		<HighlightFont style="GlueFontHighlight"/>
-		<DisabledFont style="GlueFontDisable"/>
-		<NormalTexture inherits="GluePanelButtonUpTexture"/>
-		<PushedTexture inherits="GluePanelButtonDownTexture"/>
-		<DisabledTexture inherits="GluePanelButtonDisabledTexture"/>
-		<HighlightTexture inherits="GluePanelButtonHighlightTexture" alphaMode="ADD"/>
-	</Button>
 	<Button name="GlueButtonTemplateBlue" virtual="true">
 		<Size>
 			<AbsDimension x="170" y="45"/>
