@@ -66,7 +66,7 @@
 						</Anchors>
 						
 						<Frames>
-							<Button name="$parentVideoOptionsButton" inherits="GlueButtonTemplateBlue" text="VIDEOOPTIONS_MENU">
+							<Button name="$parentVideoOptionsButton" inherits="GlueButtonTemplate" text="VIDEOOPTIONS_MENU">
 								<Size x="220" y="45"/>
 								<Anchors>
 									<Anchor point="TOP">
@@ -81,7 +81,7 @@
 									</OnClick>
 								</Scripts>
 							</Button>
-							<Button name="$parentAudioOptionsButton" inherits="GlueButtonTemplateBlue" text="SOUNDOPTIONS_MENU">
+							<Button name="$parentAudioOptionsButton" inherits="GlueButtonTemplate" text="SOUNDOPTIONS_MENU">
 								<Size x="220" y="45"/>
 								<Anchors>
 									<Anchor point="TOP" relativeTo="$parentVideoOptionsButton" relativePoint="BOTTOM">
@@ -99,7 +99,7 @@
 							
 						</Frames>
 					</Frame>
-					<Button name="OptionsSelectResetSettingsButton" inherits="GlueButtonSmallTemplateBlue" text="RESET_SETTINGS">
+					<Button name="OptionsSelectResetSettingsButton" inherits="GlueButtonSmallTemplate" text="RESET_SETTINGS">
 						<Size x="220" y="38"/>
 						<Anchors>
 							<Anchor point="BOTTOMLEFT">
@@ -112,7 +112,7 @@
 							</OnClick>
 						</Scripts>
 					</Button>
-					<Button name="$parentOkayButton" inherits="GlueButtonSmallTemplateBlue" text="CLOSE">
+					<Button name="$parentOkayButton" inherits="GlueButtonSmallTemplate" text="CLOSE">
 						<Size x="125" y="38"/>
 						<Anchors>
 							<Anchor point="BOTTOMRIGHT">

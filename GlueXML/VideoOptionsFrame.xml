@@ -6,7 +6,7 @@
 
 	<Frame name="VideoOptionsFrame" inherits="OptionsFrameTemplate">
 		<Frames>
-			<Button name="$parentApply" inherits="GlueButtonSmallTemplateBlue" text="APPLY">
+			<Button name="$parentApply" inherits="GlueButtonSmallTemplate" text="APPLY">
 				<Size>
 					<AbsDimension x="110" y="38"/>
 				</Size>
@@ -28,7 +28,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="$parentCancel" inherits="GlueButtonSmallTemplateBlue" text="CANCEL">
+			<Button name="$parentCancel" inherits="GlueButtonSmallTemplate" text="CANCEL">
 				<Size>
 					<AbsDimension x="110" y="38"/>
 				</Size>
@@ -39,7 +39,7 @@
 					<OnClick function="VideoOptionsFrameCancel_OnClick"/>
 				</Scripts>
 			</Button>
-			<Button name="$parentOkay" inherits="GlueButtonSmallTemplateBlue" text="OKAY">
+			<Button name="$parentOkay" inherits="GlueButtonSmallTemplate" text="OKAY">
 				<Size>
 					<AbsDimension x="110" y="38"/>
 				</Size>
@@ -50,7 +50,7 @@
 					<OnClick function="VideoOptionsFrameOkay_OnClick"/>
 				</Scripts>
 			</Button>
-			<Button name="$parentDefault" inherits="GlueButtonSmallTemplateBlue" text="DEFAULTS">
+			<Button name="$parentDefault" inherits="GlueButtonSmallTemplate" text="DEFAULTS">
 				<Size>
 					<AbsDimension x="110" y="38"/>
 				</Size>

@@ -497,7 +497,7 @@
 									</OnClick>
 								</Scripts>
 							</CheckButton>
-							<Button name="RealmWizardSuggest" inherits="GlueButtonSmallTemplateBlue" text="SUGGEST_REALM">
+							<Button name="RealmWizardSuggest" inherits="GlueButtonSmallTemplate" text="SUGGEST_REALM">
 								<Anchors>
 									<Anchor point="BOTTOM">
 										<Offset>
@@ -538,7 +538,7 @@
 					</OnShow>
 				</Scripts>
 			</Frame>
-			<Button name="RealmWizardCancel" inherits="GlueButtonSmallTemplateBlue" text="CANCEL">
+			<Button name="RealmWizardCancel" inherits="GlueButtonSmallTemplate" text="CANCEL">
 				<Anchors>
 					<Anchor point="BOTTOMRIGHT">
 						<Offset>
