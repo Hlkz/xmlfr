@@ -166,7 +166,7 @@
 						</FontString>
 					</Layer>
 					<Layer level="OVERLAY">
-						<Texture name="CharacterSelectLogo" file="Interface\Glues\Common\Glues-WoW-WotLKLogo">
+						<Texture name="CharacterSelectLogo" file="Interface\Glues\Common\Glues-WoW-Logo">
 							<Size>
 								<AbsDimension x="256" y="128"/>
 							</Size>
