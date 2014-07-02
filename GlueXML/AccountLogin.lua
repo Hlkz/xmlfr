@@ -176,24 +176,6 @@ function CharacterSelect_UpgradeAccount()
 	LaunchURL(AUTH_NO_TIME_URL);
 end
 
-function AccountLogin_Credits()
-	CreditsFrame.creditsType = 3;
-	PlaySound("gsTitleCredits");
-	SetGlueScreen("credits");
-end
-
-function AccountLogin_Cinematics()
-	if ( not GlueDialog:IsShown() ) then
-		PlaySound("gsLoginNewAccount");
-		if ( CinematicsFrame.numMovies > 1 ) then
-			CinematicsFrame:Show();
-		else
-			MovieFrame.version = 1;
-			SetGlueScreen("movie");
-		end
-	end
-end
-
 function AccountLogin_Options()
 	PlaySound("gsTitleOptions");
 end
@@ -577,33 +559,4 @@ function AccountLogin_SetupAccountListDDL()
 		AccountList[i] = { ["text"] = str, ["value"] = str, ["selected"] = selected, func = AccountLoginDropDown_OnClick };
 		i = i + 1;
 	end
-end
-
-function CinematicsFrame_OnLoad(self)
-	local numMovies = GetClientExpansionLevel();
-	CinematicsFrame.numMovies = numMovies;
-	if ( numMovies < 2 ) then
-		return;
-	end
-	
-	for i = 1, numMovies do
-		_G["CinematicsButton"..i]:Show();
-	end
-	CinematicsBackground:SetHeight(numMovies * 40 + 70);
-end
-
-function CinematicsFrame_OnKeyDown(key)
-	if ( key == "PRINTSCREEN" ) then
-		Screenshot();
-	else
-		PlaySound("igMainMenuOptionCheckBoxOff");
-		CinematicsFrame:Hide();
-	end	
-end
-
-function Cinematics_PlayMovie(self)
-	CinematicsFrame:Hide();
-	PlaySound("gsTitleOptionOK");
-	MovieFrame.version = self:GetID();
-	SetGlueScreen("movie");
 end

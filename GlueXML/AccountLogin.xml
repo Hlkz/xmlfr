@@ -378,11 +378,11 @@
 							</OnClick>
 						</Scripts>
 					</Button>
-					<Button name="AccountLoginCreditsButton" inherits="GlueButtonSmallTemplate" text="CREDITS">
+					<Button name="OptionsButton" inherits="GlueButtonSmallTemplate" text="OPTIONS">
 						<Anchors>
 							<Anchor point="BOTTOM" relativeTo="AccountLoginExitButton" relativePoint="TOP">
 								<Offset>
-									<AbsDimension x="0" y="80"/>
+									<AbsDimension x="0" y="-2"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -393,44 +393,15 @@
 										<AbsDimension x="256" y="0"/>
 									</Size>
 									<Anchors>
-										<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT">
+										<Anchor point="BOTTOMRIGHT" relativePoint="TOPRIGHT">
 											<Offset>
-												<AbsDimension x="-8" y="-10"/>
+												<AbsDimension x="-8" y="10"/>
 											</Offset>
 										</Anchor>
 									</Anchors>
 								</FontString>
 							</Layer>
 						</Layers>
-						<Scripts>
-							<OnClick>
-								AccountLogin_Credits();
-							</OnClick>
-						</Scripts>
-					</Button>
-					<Button name="AccountLoginCinematicsButton" inherits="GlueButtonSmallTemplate" text="CINEMATICS">
-						<Anchors>
-							<Anchor point="BOTTOM" relativeTo="AccountLoginCreditsButton" relativePoint="TOP">
-								<Offset>
-									<AbsDimension x="0" y="-2"/>
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnClick> 
-								PlaySound("gsTitleOptions");
-								AccountLogin_Cinematics();
-							</OnClick>
-						</Scripts>
-					</Button>
-					<Button name="OptionsButton" inherits="GlueButtonSmallTemplate" text="OPTIONS">
-						<Anchors>
-							<Anchor point="BOTTOM" relativeTo="AccountLoginCinematicsButton" relativePoint="TOP">
-								<Offset>
-									<AbsDimension x="0" y="-2"/>
-								</Offset>
-							</Anchor>
-						</Anchors>
 						<Scripts>
 							<OnClick>
 								PlaySound("gsTitleOptions");
@@ -1353,106 +1324,4 @@
 		</Scripts>
 		<FogColor r="0.25" g="0.06" b="0.015"/>
 	</ModelFFX>
-
-	<Frame name="CinematicsFrame" toplevel="true" parent="GlueParent" setAllPoints="true" enableMouse="true" enableKeyboard="true" frameStrata="DIALOG" hidden="true">
-		<Frames>
-			<Frame name="CinematicsBackground">
-				<Size>
-					<AbsDimension x="272" y="256"/>
-				</Size>
-				<Anchors>
-					<Anchor point="CENTER">
-						<Offset>
-							<AbsDimension x="0" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
-					<BackgroundInsets>
-						<AbsInset left="11" right="12" top="12" bottom="11"/>
-					</BackgroundInsets>
-					<TileSize>
-						<AbsValue val="32"/>
-					</TileSize>
-					<EdgeSize>
-						<AbsValue val="32"/>
-					</EdgeSize>
-				</Backdrop>
-				<Layers>
-					<Layer level="ARTWORK">
-						<FontString inherits="GlueFontNormalLarge" text="CINEMATICS">
-							<Size>
-								<AbsDimension x="450" y="0"/>
-							</Size>
-							<Anchors>
-								<Anchor point="TOP">
-									<Offset>
-										<AbsDimension x="0" y="-16"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</FontString>
-					</Layer>
-				</Layers>
-				<Frames>
-					<Button name="CinematicsButton1" inherits="GlueButtonTemplate" text="WORLD_OF_WARCRAFT" hidden="true" id="1">
-						<Size>
-							<AbsDimension x="240" y="45"/>
-						</Size>
-						<Anchors>
-							<Anchor point="TOP">
-								<Offset>
-									<AbsDimension x="0" y="-50"/>
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnClick function="Cinematics_PlayMovie"/>
-						</Scripts>
-					</Button>
-					<Button name="CinematicsButton2" inherits="GlueButtonTemplate" text="BURNING_CRUSADE" hidden="true" id="2">
-						<Size>
-							<AbsDimension x="240" y="45"/>
-						</Size>
-						<Anchors>
-							<Anchor point="TOP" relativeTo="CinematicsButton1" relativePoint="BOTTOM">
-								<Offset>
-									<AbsDimension x="0" y="5"/>
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnClick function="Cinematics_PlayMovie"/>
-						</Scripts>						
-					</Button>
-					<Button name="CinematicsButton3" inherits="GlueButtonTemplate" text="WRATH_OF_THE_LICH_KING" hidden="true" id="3">
-						<Size>
-							<AbsDimension x="240" y="45"/>
-						</Size>
-						<Anchors>				
-							<Anchor point="TOP" relativeTo="CinematicsButton2" relativePoint="BOTTOM">
-								<Offset>
-									<AbsDimension x="0" y="5"/>
-								</Offset>
-							</Anchor>
-						</Anchors>	
-						<Scripts>
-							<OnClick function="Cinematics_PlayMovie"/>
-						</Scripts>						
-					</Button>
-				</Frames>
-			</Frame>
-		</Frames>
-		<Scripts>
-			<OnLoad>
-				CinematicsFrame_OnLoad(self);
-			</OnLoad>
-			<OnShow>
-				self:Raise();
-			</OnShow>
-			<OnKeyDown>
-				CinematicsFrame_OnKeyDown(key);
-			</OnKeyDown>
-		</Scripts>
-	</Frame>	
 </Ui>
