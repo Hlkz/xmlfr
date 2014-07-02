@@ -409,23 +409,23 @@
 							</OnClick>
 						</Scripts>
 					</Button>
-					<Button name="AccountLoginCommunityButton" inherits="GlueButtonSmallTemplate" text="COMMUNITY_SITE">
+					<Button name="AccountLoginManageAccountButton" inherits="GlueButtonSmallTemplate" text="MANAGE_ACCOUNT">
 						<Anchors>
 							<Anchor point="BOTTOMLEFT">
 								<Offset>
-									<AbsDimension x="10" y="135"/>
+									<AbsDimension x="10" y="29"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
 						<Scripts>
 							<OnClick>
-								AccountLogin_LaunchCommunitySite();
+								AccountLogin_LaunchManageAccount();
 							</OnClick>
 						</Scripts>
 					</Button>
-					<Button name="AccountLoginManageAccountButton" inherits="GlueButtonSmallTemplate" text="MANAGE_ACCOUNT">
+					<Button name="AccountLoginCommunityButton" inherits="GlueButtonSmallTemplate" text="COMMUNITY_SITE">
 						<Anchors>
-							<Anchor point="BOTTOM" relativeTo="AccountLoginCommunityButton" relativePoint="TOP">
+							<Anchor point="BOTTOM" relativeTo="AccountLoginManageAccountButton" relativePoint="TOP">
 								<Offset>
 									<AbsDimension x="0" y="0"/>
 								</Offset>
@@ -433,18 +433,7 @@
 						</Anchors>
 						<Scripts>
 							<OnClick>
-								AccountLogin_ManageAccount();
-							</OnClick>
-						</Scripts>
-					</Button>
-					<Button name="AccountLoginUpgradeAccountButton" inherits="GlueButtonTemplate" text="UPGRADE_ACCOUNT" hidden="true">
-						<Size x="320" y="60"/>
-						<Anchors>
-							<Anchor point="TOP" x="0" y="-10"/>
-						</Anchors>
-						<Scripts>
-							<OnClick>
-								UpgradeAccount();
+								AccountLogin_LaunchCommunitySite();
 							</OnClick>
 						</Scripts>
 					</Button>
@@ -508,12 +497,12 @@
 					</CheckButton>
 					<Frame name="ServerAlertFrame" hidden="true">
 						<Size>
-							<AbsDimension x="352" y="400"/>
+							<AbsDimension x="352" y="340"/>
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT">
 								<Offset>
-									<AbsDimension x="10" y="-130"/>
+									<AbsDimension x="10" y="-160"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -531,7 +520,7 @@
 						<Frames>
 							<ScrollFrame name="ServerAlertScrollFrame" inherits="GlueScrollFrameTemplate">
 								<Size>
-									<AbsDimension x="300" y="360"/>
+									<AbsDimension x="300" y="300"/>
 								</Size>
 								<Anchors>
 									<Anchor point="TOPLEFT">
@@ -555,7 +544,7 @@
 								<ScrollChild>
 									<SimpleHTML name="ServerAlertText" hyperlinkFormat="|cff06ff07|H%s|h[%s]|h|r">
 										<Size>
-											<AbsDimension x="300" y="360"/>
+											<AbsDimension x="300" y="300"/>
 										</Size>
 										<Scripts>
 											<OnHyperlinkClick>

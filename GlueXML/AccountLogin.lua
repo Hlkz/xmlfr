@@ -67,12 +67,6 @@ function AccountLogin_OnShow(self)
 	else
 		AccountLogin_FocusPassword();
 	end
-	
-	if( IsTrialAccount() ) then
-		AccountLoginUpgradeAccountButton:Show();
-	else
-		AccountLoginUpgradeAccountButton:Hide();
-	end
 
 	ACCOUNT_MSG_NUM_AVAILABLE = 0;
 	ACCOUNT_MSG_PRIORITY = 0;
@@ -161,19 +155,14 @@ function AccountLogin_Login()
 	end
 end
 
-function AccountLogin_ManageAccount()
-	PlaySound("gsLoginNewAccount");
-	LaunchURL(AUTH_NO_TIME_URL);
-end
-
 function AccountLogin_LaunchCommunitySite()
 	PlaySound("gsLoginNewAccount");
 	LaunchURL(COMMUNITY_URL);
 end
 
-function CharacterSelect_UpgradeAccount()
+function AccountLogin_LaunchManageAccount()
 	PlaySound("gsLoginNewAccount");
-	LaunchURL(AUTH_NO_TIME_URL);
+	LaunchURL(MANAGE_ACCOUNT_URL);
 end
 
 function AccountLogin_Options()
