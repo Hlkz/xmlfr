@@ -1,5 +1,6 @@
 
-CurrentGlueMusic = "GS_LichKing";
+CurrentGlueMusic = "GS_Retail";
+--CurrentGlueMusic = "GS_LichKing";
 
 GlueCreditsSoundKits = { };
 GlueCreditsSoundKits[1] = "Menu-Credits01";

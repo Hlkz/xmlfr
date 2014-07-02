@@ -32,13 +32,9 @@ function AccountLogin_OnLoad(self)
 
 	self:SetCamera(0);
 	self:SetSequence(0);
-	
-	if (IsStreamingTrial()) then
-		AccountLoginCinematicsButton:Disable();
-		AccountLogin:SetModel("Interface\\Glues\\Models\\UI_MainMenu\\UI_MainMenu.m2");
-	else
-		AccountLogin:SetModel("Interface\\Glues\\Models\\UI_MainMenu_Northrend\\UI_MainMenu_Northrend.m2");
-	end
+
+	AccountLogin:SetModel("Interface\\Glues\\Models\\UI_MainMenu\\UI_MainMenu.m2");
+	--AccountLogin:SetModel("Interface\\Glues\\Models\\UI_MainMenu_Northrend\\UI_MainMenu_Northrend.m2");
 end
 
 function AccountLogin_OnShow(self)
