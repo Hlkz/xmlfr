@@ -494,7 +494,7 @@ function UnitPopup_HideButtons ()
 		elseif ( value == "INVITE" ) then
 			if ( dropdownMenu.unit ) then
 				local _, server = UnitName(dropdownMenu.unit);
-				if ( canCoop == 0  or UnitIsUnit("player", dropdownMenu.unit) or (server and server ~= "") ) then
+				if ( UnitIsUnit("player", dropdownMenu.unit) or (server and server ~= "") ) then -- if ( canCoop == 0  or UnitIsUnit("player", dropdownMenu.unit) or (server and server ~= "") ) then
 					UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
 				end
 			elseif ( (dropdownMenu == PVPDropDown) and not PVPDropDown.online ) then
@@ -518,7 +518,7 @@ function UnitPopup_HideButtons ()
 			end
 		elseif ( value == "WHISPER" ) then
 			if ( dropdownMenu.unit ) then
-				if ( canCoop == 0  or dropdownMenu.name == UnitName("player") ) then
+				if ( dropdownMenu.name == UnitName("player") ) then -- if ( canCoop == 0  or dropdownMenu.name == UnitName("player") ) then
 					UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
 				end
 			elseif ( (dropdownMenu == PVPDropDown) and not PVPDropDown.online ) then
@@ -534,9 +534,9 @@ function UnitPopup_HideButtons ()
 				end
 			end
 		elseif ( value == "DUEL" ) then
-			if ( UnitCanAttack("player", dropdownMenu.unit) ) then
-				UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
-			end
+			--if ( UnitCanAttack("player", dropdownMenu.unit) ) then
+			--	UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
+			--end
 		elseif ( value == "INSPECT" or value == "ACHIEVEMENTS" ) then
 			if ( not dropdownMenu.unit or UnitCanAttack("player", dropdownMenu.unit) ) then
 				UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
