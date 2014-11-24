@@ -93,23 +93,23 @@ function PlayerFrame_UpdatePvPStatus()
 		PlayerPVPIcon:Show();
 
 		-- Setup newbie tooltip
-		PlayerPVPIconHitArea.tooltipTitle = PVPFFA;
-		PlayerPVPIconHitArea.tooltipText = NEWBIE_TOOLTIP_PVPFFA;
-		PlayerPVPIconHitArea:Show();
+		-- PlayerPVPIconHitArea.tooltipTitle = PVPFFA;
+		-- PlayerPVPIconHitArea.tooltipText = NEWBIE_TOOLTIP_PVPFFA;
+		-- PlayerPVPIconHitArea:Show();
 		
 		PlayerPVPTimerText:Hide();
 		PlayerPVPTimerText.timeLeft = nil;
-	elseif ( factionGroup and UnitIsPVP("player") ) then
+	elseif ( UnitIsPVP("player") ) then -- elseif ( factionGroup and UnitIsPVP("player") ) then
 		if ( not PlayerPVPIcon:IsShown() ) then
 			PlaySound("igPVPUpdate");
 		end
-		PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup);
-		PlayerPVPIcon:Show();
+		-- PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA"); -- PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup);
+		-- PlayerPVPIcon:Show();
 
 		-- Setup newbie tooltip
-		PlayerPVPIconHitArea.tooltipTitle = factionName;
-		PlayerPVPIconHitArea.tooltipText = _G["NEWBIE_TOOLTIP_"..strupper(factionGroup)];
-		PlayerPVPIconHitArea:Show();
+		-- PlayerPVPIconHitArea.tooltipTitle = factionName;
+		-- PlayerPVPIconHitArea.tooltipText = _G["NEWBIE_TOOLTIP_"..strupper(factionGroup)];
+		-- PlayerPVPIconHitArea:Show();
 	else
 		PlayerPVPIcon:Hide();
 		PlayerPVPIconHitArea:Hide();

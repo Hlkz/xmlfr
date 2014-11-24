@@ -487,7 +487,9 @@ function UnitPopup_HideButtons ()
 	
 	for index, value in ipairs(UnitPopupMenus[dropdownMenu.which]) do
 		UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 1;
-		if ( value == "TRADE" ) then
+		if ( value == "PVP_FLAG" ) then
+			UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
+		elseif ( value == "TRADE" ) then
 			if ( canCoop == 0 ) then
 				UnitPopupShown[UIDROPDOWNMENU_MENU_LEVEL][index] = 0;
 			end
