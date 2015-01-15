@@ -261,15 +261,13 @@ GlueDialogTypes["OKAY_WITH_URL"] = {
 
 GlueDialogTypes["CONNECTION_HELP"] = {
 	text = "",
-	button1 = HELP,
-	button2 = OKAY,
+	button1 = OKAY,
+	button2 = nil,
+	html = 1,
 	OnShow = function()
-		VirtualKeypadFrame:Hide();
-		StatusDialogClick();
 	end,
 	OnAccept = function()
-		AccountLoginUI:Hide();
-		ConnectionHelpFrame:Show();
+		StatusDialogClick();
 	end,
 	OnCancel = function()
 	end,
@@ -277,16 +275,13 @@ GlueDialogTypes["CONNECTION_HELP"] = {
 
 GlueDialogTypes["CONNECTION_HELP_HTML"] = {
 	text = "",
-	button1 = HELP,
-	button2 = OKAY,
+	button1 = OKAY,
+	button2 = nil,
 	html = 1,
 	OnShow = function()
-		VirtualKeypadFrame:Hide();
-		StatusDialogClick();
 	end,
 	OnAccept = function()
-		AccountLoginUI:Hide();
-		ConnectionHelpFrame:Show();
+		StatusDialogClick();
 	end,
 	OnCancel = function()
 	end,
