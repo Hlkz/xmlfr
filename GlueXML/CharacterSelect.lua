@@ -536,12 +536,12 @@ end
 
 function CharacterSelect_DeathKnightSwap(self)
 	if ( CharacterSelect.currentModel == "DEATHKNIGHT" ) then
-		if (self.currentModel ~= "DEATHKNIGHT") then
-			self.currentModel = "DEATHKNIGHT";
-			self:SetNormalTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Up-Blue");
-			self:SetPushedTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Down-Blue");
-			self:SetHighlightTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Highlight-Blue");
-		end
+		--if (self.currentModel ~= "DEATHKNIGHT") then
+		--	self.currentModel = "DEATHKNIGHT";
+		--	self:SetNormalTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Up-Blue");
+		--	self:SetPushedTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Down-Blue");
+		--	self:SetHighlightTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Highlight-Blue");
+		--end
 	else
 		if (self.currentModel == "DEATHKNIGHT") then
 			self.currentModel = nil;
