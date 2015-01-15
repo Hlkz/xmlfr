@@ -497,7 +497,7 @@
 					</CheckButton>
 					<Frame name="ServerAlertFrame" hidden="true">
 						<Size>
-							<AbsDimension x="352" y="340"/>
+							<AbsDimension x="272" y="340"/>
 						</Size>
 						<Anchors>
 							<Anchor point="TOPLEFT">
@@ -520,7 +520,7 @@
 						<Frames>
 							<ScrollFrame name="ServerAlertScrollFrame" inherits="GlueScrollFrameTemplate">
 								<Size>
-									<AbsDimension x="300" y="300"/>
+									<AbsDimension x="220" y="300"/>
 								</Size>
 								<Anchors>
 									<Anchor point="TOPLEFT">
@@ -544,7 +544,7 @@
 								<ScrollChild>
 									<SimpleHTML name="ServerAlertText" hyperlinkFormat="|cff06ff07|H%s|h[%s]|h|r">
 										<Size>
-											<AbsDimension x="300" y="300"/>
+											<AbsDimension x="220" y="300"/>
 										</Size>
 										<Scripts>
 											<OnHyperlinkClick>
