@@ -187,10 +187,6 @@ GlueDialogTypes["OKAY"] = {
 	button1 = OKAY,
 	button2 = nil,
 	OnShow = function()
-		if ( VirtualKeypadFrame:IsShown() ) then
-			VirtualKeypadFrame:Hide();
-			CancelLogin();
-		end
 	end,
 	OnAccept = function()
 		StatusDialogClick();
@@ -205,10 +201,6 @@ GlueDialogTypes["OKAY_HTML"] = {
 	button2 = nil,
 	html = 1,
 	OnShow = function()
-		if ( VirtualKeypadFrame:IsShown() ) then
-			VirtualKeypadFrame:Hide();
-			CancelLogin();
-		end
 	end,
 	OnAccept = function()
 		StatusDialogClick();
