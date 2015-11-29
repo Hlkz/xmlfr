@@ -8,6 +8,7 @@ FontStyles.xml
 Localization.xml
 ## add new modules below here
 
+AvianaUI.lua
 BasicControls.xml
 WorldFrame.xml
 UIParent.xml

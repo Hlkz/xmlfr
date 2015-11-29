@@ -480,7 +480,7 @@
 				</ButtonText>
 				<NormalFont style="GameFontHighlightSmall"/>
 			</Button>
-			<Button name="WorldMapFrameCloseButton" inherits="UIPanelCloseButton">
+			<Button name="WorldMapFrameCloseButton" inherits="UIPanelCloseButton" hidden="true">
 				<Anchors>
 					<Anchor point="TOPRIGHT" relativeTo="WorldMapPositioningGuide">
 						<Offset>
@@ -489,7 +489,7 @@
 					</Anchor>
 				</Anchors>
 			</Button>
-			<Button name="WorldMapFrameSizeDownButton">
+			<Button name="WorldMapFrameSizeDownButton" hidden="true">
 				<Size>
 					<AbsDimension x="32" y="32"/>
 				</Size>
