@@ -144,5 +144,26 @@ VehicleMenuBar.xml
 AlternatePowerBar.xml
 AnimationSystem.lua
 
+#
+# AvianaUI AddOn
+#
+
+# Library files
+AvianaUI\Libs\LibStub\LibStub.lua
+AvianaUI\Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+AvianaUI\Libs\AceAddon-3.0\AceAddon-3.0.xml
+AvianaUI\Libs\AceEvent-3.0\AceEvent-3.0.xml
+AvianaUI\Libs\AceLocale-3.0\AceLocale-3.0.xml
+AvianaUI\Libs\AceConsole-3.0\AceConsole-3.0.xml
+AvianaUI\Libs\Astrolabe\Load.xml
+# Locale files
+AvianaUI\Locales\Locale-enUS.lua
+AvianaUI\Locales\Locale-frFR.lua
+# Core files
+AvianaUI\AOIcons.lua
+AvianaUI\AONewChar.lua
+AvianaUI\AOUtil.lua
+AvianaUI\AODialog.lua
+
 ## add new modules above here
 LocalizationPost.xml

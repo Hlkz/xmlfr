@@ -839,6 +839,38 @@
 							</Layer>
 						</Layers>
 					</Frame>
+					<Frame name="WorldMapFrameChooseStartFrame">
+						<Size x="400" y="128"/>
+						<Anchors>
+							<Anchor point="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="-10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer level="OVERLAY">
+								<FontString name="WorldMapFrameChooseStartLabel" inherits="WorldMapTextFont">
+									<Anchors>
+										<Anchor point="TOP">
+											<Offset>
+												<AbsDimension x="20" y="-20"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+								<FontString name="WorldMapFrameChooseStartDescription" inherits="SubZoneTextFont">
+									<Anchors>
+										<Anchor point="TOP" relativeTo="WorldMapFrameChooseStartLabel" relativePoint="BOTTOM">
+											<Offset>
+												<AbsDimension x="0" y="0"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+					</Frame>
 					<Button name="OutlandButton" hidden="true">
 						<Size>
 							<AbsDimension x="320" y="320"/>
