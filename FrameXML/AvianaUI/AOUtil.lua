@@ -14,6 +14,11 @@ SlashCmdList.FRAMESTK = function()
 	FrameStackTooltip_Toggle()
 end
 
+SLASH_FRAMESTK1 = "/hbs"
+SlashCmdList.FRAMESTK = function()
+	Aviana_FullScreenFlasher:Hide()
+end
+
 for i = 1, NUM_CHAT_WINDOWS do
 	_G["ChatFrame"..i.."EditBox"]:SetAltArrowKeyMode(false)
 end

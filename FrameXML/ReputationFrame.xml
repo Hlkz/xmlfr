@@ -543,7 +543,7 @@
 			</Frame>
 			<Frame name="ReputationDetailFrame" enableMouse="true" hidden="true">
 				<Size>
-					<AbsDimension x="212" y="203"/>
+					<AbsDimension x="212" y="228"/>
 				</Size>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="ReputationFrame" relativePoint="TOPRIGHT">
@@ -646,7 +646,7 @@
 						<Anchors>
 							<Anchor point="BOTTOMLEFT">
 								<Offset>
-									<AbsDimension x="14" y="34"/>
+									<AbsDimension x="14" y="59"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
@@ -700,7 +700,7 @@
 						</CheckedTexture>
 						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled"/>
 					</CheckButton>
-					<CheckButton name="ReputationDetailInactiveCheckBox" inherits="OptionsSmallCheckButtonTemplate">
+					<CheckButton name="ReputationDetailInactiveCheckBox" inherits="OptionsSmallCheckButtonTemplate" hidden="true">
 						<Size>
 							<AbsDimension x="26" y="26"/>
 						</Size>
@@ -765,6 +765,40 @@
 							<OnEnter>
 								GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 								GameTooltip:SetText(REPUTATION_SHOW_AS_XP, nil, nil, nil, nil, 1);
+							</OnEnter>
+							<OnLeave function="GameTooltip_Hide"/>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="ReputationDetailRpzCheckBox" inherits="OptionsSmallCheckButtonTemplate">
+						<Size>
+							<AbsDimension x="26" y="26"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="ReputationDetailMainScreenCheckBox" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="3"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<HitRectInsets>
+							<AbsInset left="0" right="0" top="0" bottom="0"/>
+						</HitRectInsets>
+						<Scripts>
+							<OnLoad>
+								_G[self:GetName().."Text"]:SetText(REPRESENT);
+							</OnLoad>
+							<OnClick>
+								FactionToggleRpz(GetSelectedFaction());
+								if ( self:GetChecked() ) then
+									PlaySound("igMainMenuOptionCheckBoxOn");
+								else
+									PlaySound("igMainMenuOptionCheckBoxOff");
+								end
+								ReputationFrame_Update();
+							</OnClick>
+							<OnEnter>
+								GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+								GameTooltip:SetText(REPUTATION_REPRESENT_DESCRIPTION, nil, nil, nil, nil, 1);
 							</OnEnter>
 							<OnLeave function="GameTooltip_Hide"/>
 						</Scripts>

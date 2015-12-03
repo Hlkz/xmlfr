@@ -168,6 +168,7 @@ function ReputationFrame_Update()
 			factionStanding:SetText(factionStandingtext);
 
 			--Normalize Values
+			local realValue = barValue;
 			barMax = barMax - barMin;
 			barValue = barValue - barMin;
 			barMin = 0;
@@ -234,7 +235,7 @@ function ReputationFrame_Update()
 					else
 						ReputationDetailAtWarCheckBox:SetChecked(nil);
 					end
-					if ( canToggleAtWar and (not isHeader)) then
+					if ( canToggleAtWar and (not isHeader) and (Aviana_RepresentedFactionIndex ~= GetSelectedFaction()) ) then
 						ReputationDetailAtWarCheckBox:Enable();
 						ReputationDetailAtWarCheckBoxText:SetTextColor(RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b);
 					else
@@ -258,6 +259,21 @@ function ReputationFrame_Update()
 					else
 						ReputationDetailMainScreenCheckBox:SetChecked(nil);
 					end
+
+					if ( Aviana_RepresentedFactionIndex == GetSelectedFaction() ) then
+						ReputationDetailRpzCheckBox:SetChecked(1);
+					else
+						ReputationDetailRpzCheckBox:SetChecked(nil);
+					end
+
+					if ( (realValue > 2999) and (not isHeader) and (not atWarWith) ) then
+						ReputationDetailRpzCheckBox:Enable();
+						ReputationDetailRpzCheckBoxText:SetTextColor(ReputationDetailRpzCheckBoxText:GetFontObject():GetTextColor());
+					else
+						ReputationDetailRpzCheckBox:Disable();
+						ReputationDetailRpzCheckBoxText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
+					end
+
 					_G["ReputationBar"..i.."ReputationBarHighlight1"]:Show();
 					_G["ReputationBar"..i.."ReputationBarHighlight2"]:Show();
 				end
@@ -288,6 +304,20 @@ function ReputationFrame_Update()
 			break;
 		end
 	end
+
+	if (Aviana_RepresentedFactionIndex == -1) then
+		SendChatMessage(".rpz ?", "GUILD")
+	end
+end
+
+function FactionToggleRpz(factionIndex)
+	if (Aviana_RepresentedFactionIndex == factionIndex) then
+		SendChatMessage(".rpz", "GUILD")
+	else
+		local name = GetFactionInfo(factionIndex);
+		SendChatMessage(".rpz "..'"'..name..'"', "GUILD")
+	end
+	Aviana_RepresentedFactionIndex = 0
 end
 
 function ReputationBar_DrawVerticalLine(texture, rows)

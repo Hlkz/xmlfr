@@ -1,6 +1,7 @@
 
 Aviana_IsLeaveWorldMapAllowed = false
 Aviana_OnClickScripts = false
+Aviana_RepresentedFactionIndex = -1
 
 function ToggleWorldMapFrame()
 	if Aviana_IsLeaveWorldMapAllowed then
