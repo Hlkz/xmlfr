@@ -14,8 +14,8 @@ SlashCmdList.FRAMESTK = function()
 	FrameStackTooltip_Toggle()
 end
 
-SLASH_FRAMESTK1 = "/hbs"
-SlashCmdList.FRAMESTK = function()
+SLASH_FRAMEHBS1 = "/hbs"
+SlashCmdList.FRAMEHBS = function()
 	Aviana_FullScreenFlasher:Hide()
 end
 

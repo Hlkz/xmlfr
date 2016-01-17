@@ -179,7 +179,7 @@ function ReputationFrame_Update()
 			factionBar:SetValue(barValue);
 			local color = FACTION_BAR_COLORS[standingID];
 			factionBar:SetStatusBarColor(color.r, color.g, color.b);
-			
+
 			if ( isHeader and not isChild ) then
 				factionLeftLine:SetTexCoord(0, 0.25, 0, 2);
 				factionBottomLine:Hide();
@@ -285,6 +285,7 @@ function ReputationFrame_Update()
 			factionRow:Hide();
 		end
 	end
+
 	if ( GetSelectedFaction() == 0 ) then
 		ReputationDetailFrame:Hide();
 	end
@@ -305,7 +306,7 @@ function ReputationFrame_Update()
 		end
 	end
 
-	if (Aviana_RepresentedFactionIndex == -1) then
+	if ( Aviana_RepresentedFactionIndex == -1 and not Aviana_WaitingForRepresentedFaction ) then
 		SendChatMessage(".rpz ?", "GUILD")
 	end
 end
@@ -313,9 +314,11 @@ end
 function FactionToggleRpz(factionIndex)
 	if (Aviana_RepresentedFactionIndex == factionIndex) then
 		SendChatMessage(".rpz", "GUILD")
+		Aviana_WaitingForRepresentedFaction = true
 	else
 		local name = GetFactionInfo(factionIndex);
 		SendChatMessage(".rpz "..'"'..name..'"', "GUILD")
+		Aviana_WaitingForRepresentedFaction = true
 	end
 	Aviana_RepresentedFactionIndex = 0
 end

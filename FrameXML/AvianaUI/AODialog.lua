@@ -51,13 +51,18 @@ end
 
 function HandleAOFAddonMessage(MSG)
 	local pattern, m
+	pattern = "^(.*),([0-9])$"
+	m = strmatch(MSG, pattern)
+	if not m then return end
+
+	local _, _, MSG, canCreateNodeGroup = strfind(MSG, pattern)
 	pattern = "^([0-9]+)$"
 	m = strmatch(MSG, pattern)
-
 	if m then
 		local _, _, repListID = strfind(MSG, pattern)
 		repListID = tonumber(repListID)
 		Aviana_RepresentedFactionIndex = 0
+		Aviana_WaitingForRepresentedFaction = false
 	else
 		pattern = "^\(.*)$"
 		m = strmatch(MSG, pattern)
@@ -70,6 +75,7 @@ function HandleAOFAddonMessage(MSG)
 				factionIndex = Aviana_ReputationIdByName[name]
 				if ( factionIndex ) then
 					Aviana_RepresentedFactionIndex = factionIndex
+					Aviana_WaitingForRepresentedFaction = false
 				end
 			end
 		end
