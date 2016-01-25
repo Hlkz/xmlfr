@@ -946,7 +946,7 @@
 			</OnMouseUp> 
 		</Scripts>
 	</Button>
-	<Button name="RaidFrameRaidBrowserButton" inherits="UIPanelButtonTemplate" parent="RaidFrame" text="LOOKING_FOR_RAID">
+	<!--<Button name="RaidFrameRaidBrowserButton" inherits="UIPanelButtonTemplate" parent="RaidFrame" text="LOOKING_FOR_RAID">
 		<Size>
 			<AbsDimension x="90" y="21"/>
 		</Size>
@@ -965,15 +965,15 @@
 		<NormalFont style="GameFontNormalSmall"/>
 		<HighlightFont style="GameFontHighlightSmall"/>
 		<DisabledFont style="GameFontDisableSmall"/>
-	</Button>
+	</Button>-->
 	<Button name="RaidFrameReadyCheckButton" inherits="UIPanelButtonTemplate" parent="RaidFrame" text="READY_CHECK">
 		<Size>
 			<AbsDimension x="90" y="21"/>
 		</Size>
 		<Anchors>
-			<Anchor point="LEFT" relativeTo="RaidFrameRaidBrowserButton" relativePoint="RIGHT">
+			<Anchor point="TOPLEFT">
 				<Offset>
-					<AbsDimension x="2" y="0"/>
+					<AbsDimension x="71" y="-37"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -987,6 +987,23 @@
 		<HighlightFont style="GameFontHighlightSmall"/>
 		<DisabledFont style="GameFontDisableSmall"/>
 	</Button>
+	<Frame name="RaidFrameTypeAndName" parent="RaidFrame">
+		<Size>
+			<AbsDimension x="150" y="22"/>
+		</Size>
+		<Anchors>
+			<Anchor point="LEFT" relativeTo="RaidFrameReadyCheckButton" relativePoint="RIGHT">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<FontString name="RaidFrameTypeAndNameText" parent="RaidFrame" inherits="GameFontNormal" text="" />
+			</Layer>
+		</Layers>
+	</Frame>
 	<Button name="RaidClassButton13"  parent="RaidFrame" inherits="RaidClassButtonTemplate" id="13">
 		<Anchors>
 			<Anchor point="BOTTOMLEFT" relativeTo="RaidFrame" relativePoint="BOTTOMRIGHT">

@@ -181,7 +181,7 @@ function RaidGroupFrame_OnEvent(self, event, ...)
 		RaidClassButton_Update();
 	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
 		RaidFrameReadyCheckButton_Update();
-		RaidFrameRaidBrowserButton_Update();
+		--RaidFrameRaidBrowserButton_Update();
 		RaidPullout_RenewFrames();
 	elseif ( event == "VARIABLES_LOADED" ) then
 		RaidFrame.showRange = GetCVarBool("showRaidRange");
@@ -248,7 +248,7 @@ function RaidGroupFrame_Update()
 	end
 
 	RaidFrameReadyCheckButton_Update();
-	RaidFrameRaidBrowserButton_Update();
+	--RaidFrameRaidBrowserButton_Update();
 	if ( RaidFrameReadyCheckButton:IsShown() ) then
 		RaidFrameRaidInfoButton:SetPoint("LEFT", "RaidFrameReadyCheckButton", "RIGHT", 2, 0);
 	end
@@ -1507,10 +1507,10 @@ function RaidFrameReadyCheckButton_Update()
 	end
 end
 
-function RaidFrameRaidBrowserButton_Update()
-	if ( GetNumRaidMembers() > 0 ) then
-		RaidFrameRaidBrowserButton:Show();
-	else	
-		RaidFrameRaidBrowserButton:Hide();
-	end
-end
+--function RaidFrameRaidBrowserButton_Update()
+--	if ( GetNumRaidMembers() > 0 ) then
+--		RaidFrameRaidBrowserButton:Show();
+--	else	
+--		RaidFrameRaidBrowserButton:Hide();
+--	end
+--end

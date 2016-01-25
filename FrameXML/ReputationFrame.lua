@@ -308,6 +308,7 @@ function ReputationFrame_Update()
 
 	if ( Aviana_RepresentedFactionIndex == -1 and not Aviana_WaitingForRepresentedFaction ) then
 		SendChatMessage(".rpz ?", "GUILD")
+		Aviana_WaitingForRepresentedFaction = true
 	end
 end
 

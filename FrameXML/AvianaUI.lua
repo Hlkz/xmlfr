@@ -5,6 +5,11 @@ Aviana_WaitingForRepresentedFaction = false
 -- AOI
 Aviana_IsLeaveWorldMapAllowed = false
 Aviana_OnClickScripts = false
+-- AOR
+Aviana_CanCreateFactionRaid = false
+Aviana_CanCreateGuildRaid = false
+-- AOGM
+Aviana_GM = false
 
 function ToggleWorldMapFrame()
 	if Aviana_IsLeaveWorldMapAllowed then

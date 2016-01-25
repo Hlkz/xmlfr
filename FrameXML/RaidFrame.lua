@@ -67,19 +67,46 @@ function RaidFrame_Update()
 	-- If not in a raid hide all the UI and just display raid explanation text
 	if ( GetNumRaidMembers() == 0 ) then
 		RaidFrameConvertToRaidButton:Show();
-		if ( GetPartyMember(1) and IsPartyLeader() and UnitLevel("player") >= 10 and not HasLFGRestrictions() ) then
+		CreateFactionRaidCheck:Show()
+		CreateGuildRaidCheck:Show()
+		if ( Aviana_GM or ( GetPartyMember(1) and IsPartyLeader() and not HasLFGRestrictions() ) ) then
 			RaidFrameConvertToRaidButton:Enable();
+			if ( Aviana_CanCreateFactionRaid ) then
+				CreateFactionRaidCheck:Enable()
+				CreateFactionRaidCheckText:SetTextColor(CreateFactionRaidCheckText:GetFontObject():GetTextColor());
+			else
+				CreateFactionRaidCheck:Disable()
+				CreateFactionRaidCheckText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
+			end
+			if ( Aviana_CanCreateGuildRaid ) then
+				CreateGuildRaidCheck:Enable()
+				CreateGuildRaidCheckText:SetTextColor(CreateGuildRaidCheckText:GetFontObject():GetTextColor());
+			else
+				CreateGuildRaidCheck:Disable()
+				CreateGuildRaidCheckText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
+			end
 		else
 			RaidFrameConvertToRaidButton:Disable();
+			CreateFactionRaidCheck:Disable()
+			CreateFactionRaidCheckText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
+			CreateGuildRaidCheck:Disable()
+			CreateGuildRaidCheckText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b);
 		end
 		RaidFrameNotInRaid:Show();
 	else
 		RaidFrameConvertToRaidButton:Hide();
+		CreateFactionRaidCheck:Hide()
+		CreateGuildRaidCheck:Hide()
 		RaidFrameNotInRaid:Hide();
 	end
 
 	if ( RaidGroupFrame_Update ) then
 		RaidGroupFrame_Update();
+	end
+
+	if ( Aviana_RepresentedFactionIndex == -1 and not Aviana_WaitingForRepresentedFaction ) then
+		SendChatMessage(".rpz ?", "GUILD")
+		Aviana_WaitingForRepresentedFaction = true
 	end
 end
 
@@ -228,3 +255,27 @@ function RaidInfoExtendButton_OnClick(self)
 	RequestRaidInfo();
 	RaidInfoFrame_Update();
 end
+
+function ConvertToRaid2()
+	if ( Aviana_CanCreateFactionRaid and CreateFactionRaidCheck:GetChecked() ) then
+		SendChatMessage(".raid 1", "GUILD")
+	elseif ( Aviana_CanCreateGuildRaid and CreateGuildRaidCheck:GetChecked() ) then
+		SendChatMessage(".raid 2", "GUILD")
+	else
+		SendChatMessage(".raid", "GUILD")
+		--ConvertToRaid()
+	end
+end
+
+function CreateFactionRaidCheck_OnClick()
+	if ( CreateFactionRaidCheck:GetChecked() and CreateGuildRaidCheck:GetChecked() ) then
+		CreateGuildRaidCheck:SetChecked(nil)
+	end
+end
+
+function CreateGuildRaidCheck_OnClick()
+	if ( CreateGuildRaidCheck:GetChecked() and CreateFactionRaidCheck:GetChecked() ) then
+		CreateFactionRaidCheck:SetChecked(nil)
+	end
+end
+

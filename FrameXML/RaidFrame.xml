@@ -156,39 +156,8 @@
 								</Anchor>
 							</Anchors>
 						</FontString>
-						<FontString name="RaidFrameRaidBrowserDescription" inherits="GameFontHighlight" text="RAID_BROWSER_DESCRIPTION" justifyH="CENTER">
-							<Size>
-								<AbsDimension x="300" y="0"/>
-							</Size>
-							<Anchors>
-								<Anchor point="TOP" relativeTo="RaidFrameRaidDescription" relativePoint="BOTTOM">
-									<Offset>
-										<AbsDimension x="-0" y="-50"/>
-									</Offset>
-								</Anchor>
-							</Anchors>
-						</FontString>
 					</Layer>
 				</Layers>
-				<Frames>
-					<Button name="$parentRaidBrowserButton" inherits="UIPanelButtonTemplate2" text="OPEN_RAID_BROWSER">
-						<Size>
-							<AbsDimension x="260" y="22"/>
-						</Size>
-						<Anchors>
-							<Anchor point="TOP" relativeTo="RaidFrameRaidBrowserDescription" relativePoint="BOTTOM">
-								<Offset>
-									<AbsDimension x="0" y="-10"/>
-								</Offset>
-							</Anchor>
-						</Anchors>
-						<Scripts>
-							<OnClick>
-								ShowUIPanel(LFRParentFrame);
-							</OnClick>
-						</Scripts>
-					</Button>
-				</Frames>
 			</Frame>
 			<Button name="RaidFrameConvertToRaidButton" inherits="UIPanelButtonTemplate" text="CONVERT_TO_RAID">
 				<Size>
@@ -202,7 +171,7 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<OnClick function="ConvertToRaid"/>
+					<OnClick function="ConvertToRaid2"/>
 				</Scripts>
 				<NormalFont style="GameFontNormalSmall"/>
 				<HighlightFont style="GameFontHighlightSmall"/>
@@ -215,7 +184,7 @@
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="RaidFrameConvertToRaidButton" relativePoint="RIGHT">
 						<Offset>
-							<AbsDimension x="65" y="0"/>
+							<AbsDimension x="65" y="-200"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -232,6 +201,38 @@
 				<HighlightFont style="GameFontHighlightSmall"/>
 				<DisabledFont style="GameFontDisableSmall"/>
 			</Button>
+			<CheckButton name="CreateFactionRaidCheck" inherits="UICheckButtonTemplate">
+				<Size x="24" y="24"/>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="RaidFrameConvertToRaidButton" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="15" y="2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."Text"]:SetText(CONVERT_TO_FACTION_RAID);
+					</OnLoad>
+					<OnClick function="CreateFactionRaidCheck_OnClick"/>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="CreateGuildRaidCheck" inherits="UICheckButtonTemplate">
+				<Size x="24" y="24"/>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="CreateFactionRaidCheck" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="6"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						_G[self:GetName().."Text"]:SetText(CONVERT_TO_GUILD_RAID);
+					</OnLoad>
+					<OnClick function="CreateGuildRaidCheck_OnClick"/>
+				</Scripts>
+			</CheckButton>
 			<Frame name="RaidInfoFrame" enableMouse="true" hidden="true">
 				<Size>
 					<AbsDimension x="345" y="250"/>

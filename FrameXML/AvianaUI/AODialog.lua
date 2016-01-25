@@ -25,6 +25,19 @@ local function AddonMessageEventHandler(self, event, MSG, _, Type, Sender)
 			HandleAOFAddonMessage(MSG)
 			return
 		end
+		if (prefix == "AOG") then
+			HandleAOGAddonMessage(MSG)
+			return
+		end
+		if (prefix == "AOR") then
+			HandleAORAddonMessage(MSG)
+			return
+		end
+
+		if (prefix == "AOGM") then
+			HandleAOGMAddonMessage(MSG)
+			return
+		end
 	end
 end
 
@@ -55,7 +68,8 @@ function HandleAOFAddonMessage(MSG)
 	m = strmatch(MSG, pattern)
 	if not m then return end
 
-	local _, _, MSG, canCreateNodeGroup = strfind(MSG, pattern)
+	local _, _, MSG, canCreateFactionRaid = strfind(MSG, pattern)
+
 	pattern = "^([0-9]+)$"
 	m = strmatch(MSG, pattern)
 	if m then
@@ -80,5 +94,74 @@ function HandleAOFAddonMessage(MSG)
 			end
 		end
 	end
+
+	canCreateFactionRaid = tonumber(canCreateFactionRaid)
+	if (canCreateFactionRaid ~= 0 ) then
+		Aviana_CanCreateFactionRaid = true
+	else
+		Aviana_CanCreateFactionRaid = false
+	end
+
 	ReputationFrame_Update()
+	RaidFrame_Update()
+end
+
+function HandleAOGAddonMessage(MSG)
+	local pattern, m
+	pattern = "^([0-9])$"
+	m = strmatch(MSG, pattern)
+	if not m then return end
+
+	local _, _, canCreateGuildRaid = strfind(MSG, pattern)
+
+	canCreateGuildRaid = tonumber(canCreateGuildRaid)
+	if (canCreateGuildRaid ~= 0 ) then
+		Aviana_CanCreateGuildRaid = true
+	else
+		Aviana_CanCreateGuildRaid = false
+	end
+
+	RaidFrame_Update()
+end
+
+function HandleAORAddonMessage(MSG)
+	local pattern, m
+	pattern = "^([0-9]),([0-9]+),(.*)$"
+	m = strmatch(MSG, pattern)
+	if not m then return end
+
+	local _, _, raidType, actorId, actorName = strfind(MSG, pattern)
+	raidType = tonumber(raidType)
+	actorId = tonumber(actorId)
+
+	RaidFrameTypeAndNameText:SetText(actorName)
+	--if ( raidType ~= 0 ) then
+	--	RaidFrameTypeAndName:Show()
+	--	if ( raidType == 1 ) then
+	--		RaidFrameTypeAndNameText:SetText(string.format(RAID_TYPE_FACTION, actorName))
+	--	elseif ( raidType == 2 ) then
+	--		RaidFrameTypeAndNameText:SetText(string.format(RAID_TYPE_GUILD, actorName))
+	--	end
+	--else
+	--	RaidFrameTypeAndName:Hide()
+	--end
+
+	RaidFrame_Update()
+end
+
+function HandleAOGMAddonMessage(MSG)
+	local pattern, m
+	pattern = "^([0-9])$"
+	m = strmatch(MSG, pattern)
+	if not m then return end
+
+	local _, _, isGM = strfind(MSG, pattern)
+	isGM = tonumber(isGM)
+	if ( isGM ~= 0 ) then
+		Aviana_GM = true
+	else
+		Aviana_GM = false
+	end
+
+	RaidFrame_Update()
 end
