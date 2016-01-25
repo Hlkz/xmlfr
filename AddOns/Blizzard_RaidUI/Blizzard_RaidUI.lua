@@ -238,6 +238,7 @@ function RaidGroupFrame_Update()
 			classes[i]:Hide();
 		end
 		RaidFrameReadyCheckButton:Hide();
+		RaidFrameTypeAndName:Hide()
 	else
 		for i=1, NUM_RAID_GROUPS do
 			raid_groupFrames[i]:Show();
@@ -245,13 +246,14 @@ function RaidGroupFrame_Update()
 		for i=1, MAX_RAID_CLASS_BUTTONS do
 			classes[i]:Show();
 		end
+		RaidFrameTypeAndName:Show()
 	end
 
 	RaidFrameReadyCheckButton_Update();
 	--RaidFrameRaidBrowserButton_Update();
-	if ( RaidFrameReadyCheckButton:IsShown() ) then
-		RaidFrameRaidInfoButton:SetPoint("LEFT", "RaidFrameReadyCheckButton", "RIGHT", 2, 0);
-	end
+	-- if ( RaidFrameReadyCheckButton:IsShown() ) then
+		-- RaidFrameRaidInfoButton:SetPoint("LEFT", "RaidFrameReadyCheckButton", "RIGHT", 2, 0);
+	-- end
 
 
 	-- Reset group index counters;

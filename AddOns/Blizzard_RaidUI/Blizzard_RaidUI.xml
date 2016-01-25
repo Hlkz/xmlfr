@@ -946,26 +946,6 @@
 			</OnMouseUp> 
 		</Scripts>
 	</Button>
-	<!--<Button name="RaidFrameRaidBrowserButton" inherits="UIPanelButtonTemplate" parent="RaidFrame" text="LOOKING_FOR_RAID">
-		<Size>
-			<AbsDimension x="90" y="21"/>
-		</Size>
-		<Anchors>
-			<Anchor point="TOPLEFT">
-				<Offset>
-					<AbsDimension x="71" y="-37"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Scripts>
-			<OnClick>
-				ShowUIPanel(LFRParentFrame);
-			</OnClick>
-		</Scripts>
-		<NormalFont style="GameFontNormalSmall"/>
-		<HighlightFont style="GameFontHighlightSmall"/>
-		<DisabledFont style="GameFontDisableSmall"/>
-	</Button>-->
 	<Button name="RaidFrameReadyCheckButton" inherits="UIPanelButtonTemplate" parent="RaidFrame" text="READY_CHECK">
 		<Size>
 			<AbsDimension x="90" y="21"/>
