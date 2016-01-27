@@ -146,6 +146,64 @@ function AOIHandler:OnEnter(motion)
 	tooltip:Show()
 end
 
+local Aviana_DropDownId = 0
+local Aviana_DropDownTitle = ""
+
+function AOIHandler_GenerateDropDownMenu(button, level)
+	local info = {}
+	if (not level) then return end
+	for k in pairs(info) do info[k] = nil end
+	if (level == 1) then
+		-- Create the title of the menu
+		info.isTitle      = 1
+		info.text         = Aviana_DropDownTitle
+		info.notCheckable = 1
+		UIDropDownMenu_AddButton(info, level)
+
+		info.disabled     = nil
+		info.isTitle      = nil
+
+		if ( IsRaidLeader() and Aviana_RaidType > 0 ) then
+			-- Attack node menu item
+			info.text = L["AttackNode"]
+			info.icon = nil
+			info.func = function() AOIcons:AttackNode(Aviana_DropDownId) end
+			info.arg1 = nil
+			info.arg2 = nil
+			UIDropDownMenu_AddButton(info, level)
+
+			-- Defend node menu item
+			info.text = L["DefendNode"]
+			info.icon = nil
+			info.func = function() AOIcons:DefendNode(Aviana_DropDownId) end
+			info.arg1 = nil
+			info.arg2 = nil
+			UIDropDownMenu_AddButton(info, level)
+		end
+
+		if ( Aviana_GM ) then
+			info.text = L["TeleportToNode"]
+			info.icon = nil
+			info.func = function() AOIcons:SendStartCommand(Aviana_DropDownId) end
+			info.arg1 = nil
+			info.arg2 = nil
+			UIDropDownMenu_AddButton(info, level)
+		end
+
+		-- Close menu item
+		-- info.text         = CLOSE
+		-- info.icon         = nil
+		-- info.func         = CloseDropDownMenus
+		-- info.arg1         = nil
+		-- info.arg2         = nil
+		-- info.notCheckable = 1
+		-- UIDropDownMenu_AddButton(info, level)
+	end
+end
+local AOIHandler_AOIDropdownMenu = CreateFrame("Frame", "AOIHandler_AOIDropdownMenu")
+AOIHandler_AOIDropdownMenu.displayMode = "MENU"
+AOIHandler_AOIDropdownMenu.initialize = AOIHandler_GenerateDropDownMenu
+
 function AOIHandler:OnLeave(motion)
 	WorldMapBlobFrame:SetScript("OnUpdate", WorldMapBlobFrame_OnUpdate) -- restore default UI
 
@@ -157,11 +215,17 @@ function AOIHandler:OnLeave(motion)
 end
 function AOIHandler:OnClick(button, down)
 	if (not self.id) then return end
-	Aviana_OnClickScripts = false -- Player can still not leave his WorldMap (Aviana_IsLeaveWorldMapAllowed = false)
-	AOIcons:UpdateWorldMap()
-	SendChatMessage(".node getinfos "..self.id, "GUILD")
-end
 
+	if ( button == "RightButton" and not down and ( ( IsRaidLeader() and Aviana_RaidType > 0 ) or Aviana_GM ) ) then
+		Aviana_DropDownId = self.id
+		Aviana_DropDownTitle = self.title
+		ToggleDropDownMenu(1, nil, AOIHandler_AOIDropdownMenu, self, 0, 0)
+	elseif ( Aviana_OnClickScripts and ( aoi.flags == 9 or aoi.flags == 19 ) ) then
+		Aviana_OnClickScripts = false -- Player can still not leave his WorldMap (Aviana_IsLeaveWorldMapAllowed = false)
+		AOIcons:UpdateWorldMap()
+		SendAvianaCommand(".start "..self.id)
+	end
+end
 
 ---------------------------------------------------------
 -- Public functions
@@ -336,11 +400,7 @@ function AOIcons:UpdateWorldMapPlugin()
 			icon:SetScript("OnClick", nil)
 			icon:SetScript("OnEnter", AOIHandler.OnEnter)
 			icon:SetScript("OnLeave", AOIHandler.OnLeave)
-			if (Aviana_OnClickScripts) then
-				if (aoi.flags == 9 or aoi.flags == 19) then
-					icon:SetScript("OnClick", AOIHandler.OnClick)
-				end
-			end
+			icon:SetScript("OnClick", AOIHandler.OnClick)
 			local C, Z
 			if mapFile2 then
 				C, Z = self:GetCZ(mapFile2)
@@ -466,7 +526,7 @@ function AOIcons:OnEnable()
 	updateFrame:Show()
 	self:UpdateMinimap()
 	self:UpdateWorldMap()
-	SendChatMessage(".node getinfos", "GUILD")
+	SendAvianaCommand(".rl")
 end
 
 ---------------------------------------------------------
@@ -523,6 +583,21 @@ function AOIcons:HandleAddonMessage(MSG)
 			AOIcons:UpdateWorldMap()
 		end
 	end
+end
+
+function AOIcons:SendStartCommand(id)
+	SendAvianaCommand(".start "..id)
+	ToggleWorldMapFrame()
+end
+
+function AOIcons:AttackNode(id)
+	SendAvianaCommand(".node attack "..id)
+	ToggleWorldMapFrame()
+end
+
+function AOIcons:DefendNode(id)
+	SendAvianaCommand(".node defend "..id)
+	ToggleWorldMapFrame()
 end
 
 -- vim: ts=4 noexpandtab

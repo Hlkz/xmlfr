@@ -134,6 +134,7 @@ function HandleAORAddonMessage(MSG)
 	raidType = tonumber(raidType)
 	actorId = tonumber(actorId)
 
+	Aviana_RaidType = raidType
 	RaidFrameTypeAndNameText:SetText(actorName)
 	--if ( raidType ~= 0 ) then
 	--	RaidFrameTypeAndName:Show()

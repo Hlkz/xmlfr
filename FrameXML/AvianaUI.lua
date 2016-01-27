@@ -8,8 +8,13 @@ Aviana_OnClickScripts = false
 -- AOR
 Aviana_CanCreateFactionRaid = false
 Aviana_CanCreateGuildRaid = false
+Aviana_RaidType = 0
 -- AOGM
 Aviana_GM = false
+
+function SendAvianaCommand(MSG)
+	SendChatMessage(MSG, "GUILD")
+end
 
 function ToggleWorldMapFrame()
 	if Aviana_IsLeaveWorldMapAllowed then
