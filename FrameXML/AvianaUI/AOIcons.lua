@@ -412,7 +412,7 @@ function AOIcons:UpdateWorldMapPlugin()
 			for _, contitr in pairs(continentMapFile) do
 				if contitr == mapFile then isContinent = true end
 			end
-			if not isContinent or (aoi.flags == 1 or aoi.flags == 19) then
+			if ( ( isContinent or zone == 0 or aoi.zone == zone ) and ( not isContinent or (aoi.flags == 1 or aoi.flags == 19) ) ) then
 			--if not isContinent or (aoi.flags % (2 * 1) >= 1) then
 				if not C or not Z or C == WORLDMAP_COSMIC_ID then
 					icon:ClearAllPoints()
@@ -550,18 +550,19 @@ function AOIcons:HandleAddonMessage(MSG)
 			AOIcons:UpdateWorldMap()
 		end
 	else
-		pattern = "^([0-9]+),([0-9]+),([0-9]+),([0-9\.]+),([0-9]+),([0-9\-\.]+),([0-9\-\.]+),(.*),(.*),(.*)$"
+		pattern = "^([0-9]+),([0-9]+),([0-9]+),([0-9\.]+),([0-9]+),([0-9]+),([0-9\-\.]+),([0-9\-\.]+),(.*),(.*),(.*)$"
 		m = strmatch(MSG, pattern)
 		if not m then 
 		
 		return end
-		local _, _, Type, id, icon, scale, map, x, y, title, desc, flags = strfind(MSG, pattern)
+		local _, _, Type, id, icon, scale, map, zone, x, y, title, desc, flags = strfind(MSG, pattern)
 
 		Type = tonumber(Type)
 		id = tonumber(id)
 		icon = tonumber(icon)
 		scale = tonumber(scale)
 		map = tonumber(map)
+		zone = tonumber(zone)
 		x = tonumber(x)
 		y = tonumber(y)
 		flags = tonumber(flags)
@@ -574,10 +575,11 @@ function AOIcons:HandleAddonMessage(MSG)
 			aoi.title = title
 			aoi.desc = desc
 			aoi.map = map
+			aoi.zone = zone
 			aoi.x = x
 			aoi.y = y
 			aoi.flags = flags
-			--print("  Add AOI["..Type.."]["..id.."] = icon:"..icon.." scale:"..scale.." map:"..map.." x:"..x.." y:"..y.."  title:"..title.." desc:"..desc)
+			--print("  Add AOI["..Type.."]["..id.."] = icon:"..icon.." scale:"..scale.." map:"..map.." zone:"..zone.." x:"..x.." y:"..y.."  title:"..title.." desc:"..desc)
 			AOI[Type][id] = aoi;
 			AOIcons:UpdateMinimap()
 			AOIcons:UpdateWorldMap()
