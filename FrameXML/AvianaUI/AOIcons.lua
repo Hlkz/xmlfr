@@ -75,7 +75,7 @@ end
 ---------------------------------------------------------
 -- Our frames recycling code
 
-local AOI = {}
+AOI = {}
 local MAX_AOI_TYPE = 10
 local DEFAULT_POI_ICON_SIZE = 12
 for i = 1, MAX_AOI_TYPE, 1 do

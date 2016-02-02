@@ -9,34 +9,40 @@ local function AddonMessageEventHandler(self, event, MSG, _, Type, Sender)
 		if not m then return end
 		local _, _, prefix, MSG = strfind(MSG, pattern)
 
+
 		if (prefix == "AOI") then
 			-- prefix,type,id,icon,title,desc,x,y
 			AOIcons:HandleAddonMessage(MSG)
-			return
-		end
 
-		if (prefix == "AON") then
+		elseif (prefix == "AON") then
 			-- prefix,isNew
 			AONewChar:HandleAddonMessage(MSG)
-			return
-		end
 
-		if (prefix == "AOF") then
+		elseif (prefix == "AONFT") then
+			HandleAONFTAddonMessage(MSG)
+		elseif (prefix == "AONF") then
+			HandleAONFAddonMessage(MSG)
+
+		elseif (prefix == "AONGT") then
+			HandleAONGTAddonMessage(MSG)
+		elseif (prefix == "AONG") then
+			HandleAONGAddonMessage(MSG)
+		elseif (prefix == "AONGC") then
+			HandleAONGCAddonMessage(MSG)
+		elseif (prefix == "AONGR") then
+			HandleAONGRAddonMessage(MSG)
+
+		elseif (prefix == "AOF") then
 			HandleAOFAddonMessage(MSG)
-			return
-		end
-		if (prefix == "AOG") then
-			HandleAOGAddonMessage(MSG)
-			return
-		end
-		if (prefix == "AOR") then
-			HandleAORAddonMessage(MSG)
-			return
-		end
 
-		if (prefix == "AOGM") then
+		elseif (prefix == "AOG") then
+			HandleAOGAddonMessage(MSG)
+
+		elseif (prefix == "AOR") then
+			HandleAORAddonMessage(MSG)
+
+		elseif (prefix == "AOGM") then
 			HandleAOGMAddonMessage(MSG)
-			return
 		end
 	end
 end

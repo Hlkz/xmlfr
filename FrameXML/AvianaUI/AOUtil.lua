@@ -23,6 +23,10 @@ for i = 1, NUM_CHAT_WINDOWS do
 	_G["ChatFrame"..i.."EditBox"]:SetAltArrowKeyMode(false)
 end
 
+SLASH_TEST1 = "/test"
+SlashCmdList.TEST = function()
+end
+
 ---------------------------------------------------------
 
 local EnteringWorldEventFrame = CreateFrame("FRAME", "AOUtilEventFrame")

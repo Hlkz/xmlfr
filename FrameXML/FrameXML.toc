@@ -160,6 +160,8 @@ AvianaUI\Libs\Astrolabe\Load.xml
 AvianaUI\Locales\Locale-enUS.lua
 AvianaUI\Locales\Locale-frFR.lua
 # Core files
+AvianaUI\AOEnterNode.xml
+AvianaUI\AOEnterNode.lua
 AvianaUI\AOIcons.lua
 AvianaUI\AONewChar.lua
 AvianaUI\AOUtil.lua

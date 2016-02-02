@@ -502,6 +502,63 @@
 									</Button>
 								</Frames>
 							</Frame>
+							<Button name="MiniMapNodeButton" hidden="true" inherits="MiniMapButtonTemplate">
+								<Size>
+									<AbsDimension x="33" y="33"/>
+								</Size>
+								<Anchors>
+									<Anchor point="BOTTOMLEFT">
+										<Offset>
+											<AbsDimension x="50" y="32"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer level="BORDER">
+										<Texture name="$parentIcon" file="Interface\WorldMap\UI-World-Icon">
+											<Size>
+												<AbsDimension x="20" y="20"/>
+											</Size>
+											<Anchors>
+												<Anchor point="CENTER">
+													<Offset>
+														<AbsDimension x="-2" y="2"/>
+													</Offset>
+												</Anchor>
+											</Anchors>
+										</Texture>
+									</Layer>
+									<Layer level="OVERLAY">
+										<Texture name="MiniMapNodeBorder" file="Interface\Minimap\MiniMap-TrackingBorder">
+											<Size>
+												<AbsDimension x="52" y="52"/>
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT"/>
+											</Anchors>
+										</Texture>
+									</Layer>
+								</Layers>
+								<Scripts>
+									<OnLoad>
+										-- self.tooltipText = MicroButtonTooltipText(WORLDMAP_BUTTON, "TOGGLEWORLDMAP");
+										-- self.newbieText = NEWBIE_TOOLTIP_WORLDMAP;
+										-- self:RegisterEvent("UPDATE_BINDINGS");
+									</OnLoad>
+									<OnEnter>
+										-- GameTooltip_AddNewbieTip(self, self.tooltipText, 1.0, 1.0, 1.0, self.newbieText);
+									</OnEnter>
+									<OnLeave function="GameTooltip_Hide"/>
+									<OnEvent>
+										-- self.tooltipText = MicroButtonTooltipText(WORLDMAP_BUTTON, "TOGGLEWORLDMAP");
+										-- self.newbieText = NEWBIE_TOOLTIP_WORLDMAP;
+									</OnEvent>
+									<OnClick>
+										ToggleNodeFrame();
+									</OnClick>
+								</Scripts>
+								<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+							</Button>
 							<Button name="MiniMapLFGFrame" hidden="true" inherits="MiniMapButtonTemplate">
 								<Size>
 									<AbsDimension x="33" y="33"/>

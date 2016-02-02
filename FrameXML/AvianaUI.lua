@@ -9,6 +9,8 @@ Aviana_OnClickScripts = false
 Aviana_CanCreateFactionRaid = false
 Aviana_CanCreateGuildRaid = false
 Aviana_RaidType = 0
+-- AONF
+Aviana_CanShowNodeFrame = false
 -- AOGM
 Aviana_GM = false
 
@@ -17,9 +19,11 @@ function SendAvianaCommand(MSG)
 end
 
 function ToggleWorldMapFrame()
-	if Aviana_IsLeaveWorldMapAllowed then
+print("togglemap")
+	-- if not WorldMapFrame:IsShown() or Aviana_IsLeaveWorldMapAllowed then
 		ToggleFrame(WorldMapFrame)
-	end
+	-- end
+print("togglemape")
 end
 
 Aviana_FullScreenFlasher = CreateFrame("Frame", "AWFlash")
