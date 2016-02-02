@@ -130,34 +130,9 @@
 			<OnEvent function="TalentMicroButton_OnEvent"/>
 		</Scripts>
 	</Button>
-	<Button name="AchievementMicroButton" inherits="MainMenuBarMicroButton" parent="MainMenuBarArtFrame">
-		<Anchors>
-			<Anchor point="BOTTOMLEFT" relativeTo="TalentMicroButton" relativePoint="BOTTOMRIGHT">
-				<Offset>
-					<AbsDimension x="-3" y="0"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Scripts>
-			<OnLoad>
-				LoadMicroButtonTextures(self, "Achievement");
-				self:RegisterEvent("PLAYER_ENTERING_WORLD");
-				self:RegisterEvent("RECEIVED_ACHIEVEMENT_LIST");
-				self:RegisterEvent("ACHIEVEMENT_EARNED");
-				self:RegisterEvent("UPDATE_BINDINGS");
-				self.tooltipText = MicroButtonTooltipText(ACHIEVEMENT_BUTTON, "TOGGLEACHIEVEMENT");
-				self.newbieText = NEWBIE_TOOLTIP_ACHIEVEMENT;
-				self.minLevel = 1;
-			</OnLoad>
-			<OnEvent function="AchievementMicroButton_OnEvent"/>
-			<OnClick> 
-				ToggleAchievementFrame();
-			</OnClick>
-		</Scripts>
-	</Button>
 	<Button name="QuestLogMicroButton" inherits="MainMenuBarMicroButton" parent="MainMenuBarArtFrame">
 		<Anchors>
-			<Anchor point="BOTTOMLEFT" relativeTo="AchievementMicroButton" relativePoint="BOTTOMRIGHT">
+			<Anchor point="BOTTOMLEFT" relativeTo="TalentMicroButton" relativePoint="BOTTOMRIGHT">
 				<Offset>
 					<AbsDimension x="-3" y="0"/>
 				</Offset>
